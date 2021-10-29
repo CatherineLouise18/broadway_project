@@ -1,0 +1,1250 @@
+
+R version 4.1.1 (2021-08-10) -- "Kick Things"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: i386-w64-mingw32/i386 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> tbl <- readtable('2019.csv',header=TRUE,sep=",")
+Error in readtable("2019.csv", header = TRUE, sep = ",") : 
+  could not find function "readtable"
+> tbl <- read.table('2019.csv',header=TRUE,sep=",")
+Warning messages:
+1: In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :
+  EOF within quoted string
+2: In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :
+  number of items read is not a multiple of the number of columns
+> tbl <- read.table('2019.csv',header=TRUE,sep=",",quote=",")
+> weekend <- tbl.Week.End
+Error: object 'tbl.Week.End' not found
+> tbl
+    ï..ID                               Show   Week.End Grosses
+1       7                          Hadestown 04/07/2019  615074
+2       8                Hillary and Clinton 04/07/2019  391945
+3       9                                Ink 04/07/2019  258936
+4   ï»¿ID                               Show   Week End Grosses
+5       1                    Ain't Too Proud 04/07/2019 1337083
+6       2                        All My Sons 04/07/2019  248769
+7       3                      Be More Chill 04/07/2019  597580
+8       4                        Beetlejuice 04/07/2019  765711
+9       5                          Burn This 04/07/2019  813664
+10      6  Gary A Sequel To Titus Andronicus 04/07/2019  381334
+11      7                          Hadestown 04/07/2019  615074
+12      8                Hillary and Clinton 04/07/2019  391945
+13      9                                Ink 04/07/2019  258936
+14     10                          King Kong 04/07/2019  688782
+15     11                          King Lear 04/07/2019  473262
+16     12                       Kiss Me Kate 04/07/2019  656862
+17     13                            Network 04/07/2019 1011176
+18     14                           Oklahoma 04/07/2019  451274
+19     15                      The Cher Show 04/07/2019  866212
+20     16                       The Ferryman 04/07/2019  507233
+21     17                           The Prom 04/07/2019  532455
+22     18              To Kill A Mockingbird 04/07/2019 1628150
+23     19                            Tootsie 04/07/2019  796802
+24     20  What The Constitution Means To Me 04/07/2019  410927
+25      1                    Ain't Too Proud 04/14/2019 1342738
+26      2                        All My Sons 04/14/2019  424814
+27      3                      Be More Chill 04/14/2019  554910
+28      4                        Beetlejuice 04/14/2019  686456
+29      5                          Burn This 04/14/2019  762998
+30      6  Gary A Sequel To Titus Andronicus 04/14/2019  388549
+31      7                          Hadestown 04/14/2019  688422
+32      8                Hillary and Clinton 04/14/2019  375438
+33      9                                Ink 04/14/2019  321953
+34     10                          King Kong 04/14/2019  853394
+35     11                          King Lear 04/14/2019  640045
+36     12                       Kiss Me Kate 04/14/2019  743685
+37     13                            Network 04/14/2019 1006511
+38     14                           Oklahoma 04/14/2019  599132
+39     15                      The Cher Show 04/14/2019  879787
+40     16                       The Ferryman 04/14/2019  529019
+41     17                           The Prom 04/14/2019  601260
+42     18              To Kill A Mockingbird 04/14/2019 1505427
+43     19                            Tootsie 04/14/2019  821781
+44     20  What The Constitution Means To Me 04/14/2019  457256
+45      1                    Ain't Too Proud 04/21/2019 1396582
+46      2                        All My Sons 04/21/2019  482132
+47      3                      Be More Chill 04/21/2019  727661
+48      4                        Beetlejuice 04/21/2019  797929
+49      5                          Burn This 04/21/2019  768766
+50      6 Gary: A Sequel To Titus Andronicus 04/21/2019  300613
+51      7                          Hadestown 04/21/2019  776253
+52      8                Hillary and Clinton 04/21/2019  340825
+53      9                                Ink 04/21/2019  316263
+54     10                          King Kong 04/21/2019  986113
+55     11                          King Lear 04/21/2019  608717
+56     12                       Kiss Me Kate 04/21/2019  779009
+57     13                            Network 04/21/2019 1020896
+58     14                           Oklahoma 04/21/2019  604973
+59     15                      The Cher Show 04/21/2019  790986
+60     16                       The Ferryman 04/21/2019  517931
+61     17                           The Prom 04/21/2019  659804
+62     18              To Kill A Mockingbird 04/21/2019 1720828
+63     19                            Tootsie 04/21/2019  907612
+64     20  What The Constitution Means To Me 04/21/2019  462612
+65      1                    Ain't Too Proud 04/28/2019 1445892
+66      2                        All My Sons 04/28/2019  477448
+67      3                      Be More Chill 04/28/2019  630822
+68      4                        Beetlejuice 04/28/2019  834395
+69      5                          Burn This 04/28/2019  932391
+70      6 Gary: A Sequel To Titus Andronicus 04/28/2019  354408
+71      7                          Hadestown 04/28/2019  959450
+72      8                Hillary and Clinton 04/28/2019  493353
+73      9                                Ink 04/28/2019  327495
+74     10                          King Kong 04/28/2019  807055
+75     11                          King Lear 04/28/2019  582678
+76     12                       Kiss Me Kate 04/28/2019  795891
+77     13                            Network 04/28/2019 1052594
+78     14                           Oklahoma 04/28/2019  651744
+79     15                      The Cher Show 04/28/2019  997823
+80     16                       The Ferryman 04/28/2019  595398
+81     17                           The Prom 04/28/2019  615458
+82     18              To Kill A Mockingbird 04/28/2019 1756185
+83     19                            Tootsie 04/28/2019  959001
+84     20  What The Constitution Means To Me 04/28/2019  478075
+85      1                    Ain't Too Proud 05/05/2019 1445734
+86      2                        All My Sons 05/05/2019  469296
+87      3                      Be More Chill 05/05/2019  411116
+88      4                        Beetlejuice 05/05/2019  818904
+89      5                          Burn This 05/05/2019  856397
+90      6 Gary: A Sequel To Titus Andronicus 05/05/2019  314335
+91      7                          Hadestown 05/05/2019 1055456
+92      8                Hillary and Clinton 05/05/2019  429388
+93      9                                Ink 05/05/2019  428623
+94     10                          King Kong 05/05/2019  620397
+95     11                          King Lear 05/05/2019  493146
+96     12                       Kiss Me Kate 05/05/2019  766861
+97     13                            Network 05/05/2019       0
+98     14                           Oklahoma 05/05/2019  625193
+99     15                      The Cher Show 05/05/2019  921366
+100    16                       The Ferryman 05/05/2019  560319
+101    17                           The Prom 05/05/2019  527886
+102    18              To Kill A Mockingbird 05/05/2019 1767464
+103    19                            Tootsie 05/05/2019 1256769
+104    20  What The Constitution Means To Me 05/05/2019  495660
+105     1                    Ain't Too Proud 05/12/2019 1494459
+106     2                        All My Sons 05/12/2019  528645
+107     3                      Be More Chill 05/12/2019  407296
+108     4                        Beetlejuice 05/12/2019  856787
+109     5                          Burn This 05/12/2019  853967
+110     6 Gary: A Sequel To Titus Andronicus 05/12/2019  307771
+111     7                          Hadestown 05/12/2019 1097115
+112     8                Hillary and Clinton 05/12/2019  395739
+113     9                                Ink 05/12/2019  408551
+114    10                          King Kong 05/12/2019  619540
+115    11                          King Lear 05/12/2019  460485
+116    12                       Kiss Me Kate 05/12/2019  819804
+117    13                            Network 05/12/2019  950745
+118    14                           Oklahoma 05/12/2019  615366
+119    15                      The Cher Show 05/12/2019  983477
+120    16                       The Ferryman 05/12/2019  563017
+121    17                           The Prom 05/12/2019  583781
+122    18              To Kill A Mockingbird 05/12/2019 1632527
+123    19                            Tootsie 05/12/2019 1409488
+124    20  What The Constitution Means To Me 05/12/2019  504173
+125     1                    Ain't Too Proud 05/19/2019 1463394
+126     2                        All My Sons 05/19/2019  493421
+127     3                      Be More Chill 05/19/2019  431935
+128     4                        Beetlejuice 05/19/2019  838049
+129     5                          Burn This 05/19/2019  676047
+130     6 Gary: A Sequel To Titus Andronicus 05/19/2019  264914
+131     7                          Hadestown 05/19/2019 1127838
+132     8                Hillary and Clinton 05/19/2019  332785
+133     9                                Ink 05/19/2019  426755
+134    10                          King Kong 05/19/2019  599964
+135    11                          King Lear 05/19/2019  427075
+136    12                       Kiss Me Kate 05/19/2019  772487
+137    13                            Network 05/19/2019 1015836
+138    14                           Oklahoma 05/19/2019  631293
+139    15                      The Cher Show 05/19/2019 1006889
+140    16                       The Ferryman 05/19/2019  566640
+141    17                           The Prom 05/19/2019  627990
+142    18              To Kill A Mockingbird 05/19/2019 1610208
+143    19                            Tootsie 05/19/2019 1311986
+144    20  What The Constitution Means To Me 05/19/2019  489363
+145     1                    Ain't Too Proud 05/26/2019 1576625
+146     2                        All My Sons 05/26/2019  503225
+147     3                      Be More Chill 05/26/2019  448182
+148     4                        Beetlejuice 05/26/2019  833073
+149     5                          Burn This 05/26/2019  770468
+150     6 Gary: A Sequel To Titus Andronicus 05/26/2019  263248
+151     7                          Hadestown 05/26/2019 1197934
+152     8                Hillary and Clinton 05/26/2019  330102
+153     9                                Ink 05/26/2019  422913
+154    10                          King Kong 05/26/2019  700004
+155    11                          King Lear 05/26/2019  358474
+156    12                       Kiss Me Kate 05/26/2019  791721
+157    13                            Network 05/26/2019 1008529
+158    14                           Oklahoma 05/26/2019  604896
+159    15                      The Cher Show 05/26/2019  916761
+160    16                       The Ferryman 05/26/2019  579679
+161    17                           The Prom 05/26/2019  640384
+162    18              To Kill A Mockingbird 05/26/2019 1647412
+163    19                            Tootsie 05/26/2019 1223722
+164    20  What The Constitution Means To Me 05/26/2019  524797
+165     1                    Ain't Too Proud 06/02/2019 1513346
+166     2                        All My Sons 06/02/2019  475818
+167     3                      Be More Chill 06/02/2019  396876
+168     4                        Beetlejuice 06/02/2019  749093
+169     5                          Burn This 06/02/2019  683046
+170     6 Gary: A Sequel To Titus Andronicus 06/02/2019  206060
+171     7                          Hadestown 06/02/2019 1181102
+172     8                Hillary and Clinton 06/02/2019  290537
+173     9                                Ink 06/02/2019  385970
+174    10                          King Kong 06/02/2019  682452
+175    11                          King Lear 06/02/2019  285108
+176    12                       Kiss Me Kate 06/02/2019  740119
+177    13                            Network 06/02/2019 1037755
+178    14                           Oklahoma 06/02/2019  526781
+179    15                      The Cher Show 06/02/2019  788291
+180    16                       The Ferryman 06/02/2019  542335
+181    17                           The Prom 06/02/2019  602277
+182    18              To Kill A Mockingbird 06/02/2019 1593907
+183    19                            Tootsie 06/02/2019 1086945
+184    20  What The Constitution Means To Me 06/02/2019  484311
+> tbl <- tbl.Show
+Error: object 'tbl.Show' not found
+> tbl <- tbl$Week.End
+> tbl <- tbl$Show
+Error in tbl$Show : $ operator is invalid for atomic vectors
+> library(tidyverse)
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.5     v dplyr   1.0.7
+v tidyr   1.1.4     v stringr 1.4.0
+v readr   2.0.2     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+> tbl <- tbl$Show
+Error in tbl$Show : $ operator is invalid for atomic vectors
+> tbl <- read.table('2019.csv',header=TRUE,quote=",",sep=",")
+> show <- tbl.Show
+Error: object 'tbl.Show' not found
+> weekend <- tbl$Week.End
+> show <- tbl$Show
+> grosses <- tbl$Grosses
+> ID <- tbl$ID
+> tbl$Week.End <- as.Date(tbl$Week.End, format="%m/%d/%y")
+> tbl %>%
++ ggplot( aes(x = weekend, y = grosses, colour = show)) + geom_point()
+> test <- read.table('2019(2).csv',header=TRUE,sep=",",quote=",")
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '2019(2).csv': No such file or directory
+> test <- read.table('20192.csv',header=TRUE,sep=",",quote=",")
+Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  : 
+  line 12 did not have 3 elements
+> test <- read.table('20192.csv',header=TRUE,sep=",")
+> weekends <- test$Week.End
+> shows <- test$Show
+> grossess <- test$Grosses
+> test$Week.End <- as.Date(test$Week.End, format="%m/%d/%y")
+> test %>%
++ ggplot( aes(x = weekend, y = grosses, colour = show)) + geom_point()
+Error: Aesthetics must be either length 1 or the same as the data (20): x, y and colour
+Run `rlang::last_error()` to see where the error occurred.
+> tbl %>%
++ h
+Error in h(.) : could not find function "h"
+> rlang::last_error()
+<error/rlang_error>
+Aesthetics must be either length 1 or the same as the data (20): x, y and colour
+Backtrace:
+ 1. (function (x, ...) ...
+ 2. ggplot2:::print.ggplot(x)
+ 4. ggplot2:::ggplot_build.ggplot(x)
+ 5. ggplot2:::by_layer(function(l, d) l$compute_aesthetics(d, plot))
+ 6. ggplot2:::f(l = layers[[i]], d = data[[i]])
+ 7. l$compute_aesthetics(d, plot)
+ 8. ggplot2:::f(..., self = self)
+ 9. ggplot2:::check_aesthetics(evaled, n)
+Run `rlang::last_trace()` to see the full context.
+> test %>%
++ ggplot( aes(x = weekend, y = grosses)) + geom_point()
+Error: Aesthetics must be either length 1 or the same as the data (20): x and y
+Run `rlang::last_error()` to see where the error occurred.
+> tbl
+    ï..ID                               Show   Week.End Grosses
+1       7                          Hadestown 2020-04-07  615074
+2       8                Hillary and Clinton 2020-04-07  391945
+3       9                                Ink 2020-04-07  258936
+4   ï»¿ID                               Show       <NA> Grosses
+5       1                    Ain't Too Proud 2020-04-07 1337083
+6       2                        All My Sons 2020-04-07  248769
+7       3                      Be More Chill 2020-04-07  597580
+8       4                        Beetlejuice 2020-04-07  765711
+9       5                          Burn This 2020-04-07  813664
+10      6  Gary A Sequel To Titus Andronicus 2020-04-07  381334
+11      7                          Hadestown 2020-04-07  615074
+12      8                Hillary and Clinton 2020-04-07  391945
+13      9                                Ink 2020-04-07  258936
+14     10                          King Kong 2020-04-07  688782
+15     11                          King Lear 2020-04-07  473262
+16     12                       Kiss Me Kate 2020-04-07  656862
+17     13                            Network 2020-04-07 1011176
+18     14                           Oklahoma 2020-04-07  451274
+19     15                      The Cher Show 2020-04-07  866212
+20     16                       The Ferryman 2020-04-07  507233
+21     17                           The Prom 2020-04-07  532455
+22     18              To Kill A Mockingbird 2020-04-07 1628150
+23     19                            Tootsie 2020-04-07  796802
+24     20  What The Constitution Means To Me 2020-04-07  410927
+25      1                    Ain't Too Proud 2020-04-14 1342738
+26      2                        All My Sons 2020-04-14  424814
+27      3                      Be More Chill 2020-04-14  554910
+28      4                        Beetlejuice 2020-04-14  686456
+29      5                          Burn This 2020-04-14  762998
+30      6  Gary A Sequel To Titus Andronicus 2020-04-14  388549
+31      7                          Hadestown 2020-04-14  688422
+32      8                Hillary and Clinton 2020-04-14  375438
+33      9                                Ink 2020-04-14  321953
+34     10                          King Kong 2020-04-14  853394
+35     11                          King Lear 2020-04-14  640045
+36     12                       Kiss Me Kate 2020-04-14  743685
+37     13                            Network 2020-04-14 1006511
+38     14                           Oklahoma 2020-04-14  599132
+39     15                      The Cher Show 2020-04-14  879787
+40     16                       The Ferryman 2020-04-14  529019
+41     17                           The Prom 2020-04-14  601260
+42     18              To Kill A Mockingbird 2020-04-14 1505427
+43     19                            Tootsie 2020-04-14  821781
+44     20  What The Constitution Means To Me 2020-04-14  457256
+45      1                    Ain't Too Proud 2020-04-21 1396582
+46      2                        All My Sons 2020-04-21  482132
+47      3                      Be More Chill 2020-04-21  727661
+48      4                        Beetlejuice 2020-04-21  797929
+49      5                          Burn This 2020-04-21  768766
+50      6 Gary: A Sequel To Titus Andronicus 2020-04-21  300613
+51      7                          Hadestown 2020-04-21  776253
+52      8                Hillary and Clinton 2020-04-21  340825
+53      9                                Ink 2020-04-21  316263
+54     10                          King Kong 2020-04-21  986113
+55     11                          King Lear 2020-04-21  608717
+56     12                       Kiss Me Kate 2020-04-21  779009
+57     13                            Network 2020-04-21 1020896
+58     14                           Oklahoma 2020-04-21  604973
+59     15                      The Cher Show 2020-04-21  790986
+60     16                       The Ferryman 2020-04-21  517931
+61     17                           The Prom 2020-04-21  659804
+62     18              To Kill A Mockingbird 2020-04-21 1720828
+63     19                            Tootsie 2020-04-21  907612
+64     20  What The Constitution Means To Me 2020-04-21  462612
+65      1                    Ain't Too Proud 2020-04-28 1445892
+66      2                        All My Sons 2020-04-28  477448
+67      3                      Be More Chill 2020-04-28  630822
+68      4                        Beetlejuice 2020-04-28  834395
+69      5                          Burn This 2020-04-28  932391
+70      6 Gary: A Sequel To Titus Andronicus 2020-04-28  354408
+71      7                          Hadestown 2020-04-28  959450
+72      8                Hillary and Clinton 2020-04-28  493353
+73      9                                Ink 2020-04-28  327495
+74     10                          King Kong 2020-04-28  807055
+75     11                          King Lear 2020-04-28  582678
+76     12                       Kiss Me Kate 2020-04-28  795891
+77     13                            Network 2020-04-28 1052594
+78     14                           Oklahoma 2020-04-28  651744
+79     15                      The Cher Show 2020-04-28  997823
+80     16                       The Ferryman 2020-04-28  595398
+81     17                           The Prom 2020-04-28  615458
+82     18              To Kill A Mockingbird 2020-04-28 1756185
+83     19                            Tootsie 2020-04-28  959001
+84     20  What The Constitution Means To Me 2020-04-28  478075
+85      1                    Ain't Too Proud 2020-05-05 1445734
+86      2                        All My Sons 2020-05-05  469296
+87      3                      Be More Chill 2020-05-05  411116
+88      4                        Beetlejuice 2020-05-05  818904
+89      5                          Burn This 2020-05-05  856397
+90      6 Gary: A Sequel To Titus Andronicus 2020-05-05  314335
+91      7                          Hadestown 2020-05-05 1055456
+92      8                Hillary and Clinton 2020-05-05  429388
+93      9                                Ink 2020-05-05  428623
+94     10                          King Kong 2020-05-05  620397
+95     11                          King Lear 2020-05-05  493146
+96     12                       Kiss Me Kate 2020-05-05  766861
+97     13                            Network 2020-05-05       0
+98     14                           Oklahoma 2020-05-05  625193
+99     15                      The Cher Show 2020-05-05  921366
+100    16                       The Ferryman 2020-05-05  560319
+101    17                           The Prom 2020-05-05  527886
+102    18              To Kill A Mockingbird 2020-05-05 1767464
+103    19                            Tootsie 2020-05-05 1256769
+104    20  What The Constitution Means To Me 2020-05-05  495660
+105     1                    Ain't Too Proud 2020-05-12 1494459
+106     2                        All My Sons 2020-05-12  528645
+107     3                      Be More Chill 2020-05-12  407296
+108     4                        Beetlejuice 2020-05-12  856787
+109     5                          Burn This 2020-05-12  853967
+110     6 Gary: A Sequel To Titus Andronicus 2020-05-12  307771
+111     7                          Hadestown 2020-05-12 1097115
+112     8                Hillary and Clinton 2020-05-12  395739
+113     9                                Ink 2020-05-12  408551
+114    10                          King Kong 2020-05-12  619540
+115    11                          King Lear 2020-05-12  460485
+116    12                       Kiss Me Kate 2020-05-12  819804
+117    13                            Network 2020-05-12  950745
+118    14                           Oklahoma 2020-05-12  615366
+119    15                      The Cher Show 2020-05-12  983477
+120    16                       The Ferryman 2020-05-12  563017
+121    17                           The Prom 2020-05-12  583781
+122    18              To Kill A Mockingbird 2020-05-12 1632527
+123    19                            Tootsie 2020-05-12 1409488
+124    20  What The Constitution Means To Me 2020-05-12  504173
+125     1                    Ain't Too Proud 2020-05-19 1463394
+126     2                        All My Sons 2020-05-19  493421
+127     3                      Be More Chill 2020-05-19  431935
+128     4                        Beetlejuice 2020-05-19  838049
+129     5                          Burn This 2020-05-19  676047
+130     6 Gary: A Sequel To Titus Andronicus 2020-05-19  264914
+131     7                          Hadestown 2020-05-19 1127838
+132     8                Hillary and Clinton 2020-05-19  332785
+133     9                                Ink 2020-05-19  426755
+134    10                          King Kong 2020-05-19  599964
+135    11                          King Lear 2020-05-19  427075
+136    12                       Kiss Me Kate 2020-05-19  772487
+137    13                            Network 2020-05-19 1015836
+138    14                           Oklahoma 2020-05-19  631293
+139    15                      The Cher Show 2020-05-19 1006889
+140    16                       The Ferryman 2020-05-19  566640
+141    17                           The Prom 2020-05-19  627990
+142    18              To Kill A Mockingbird 2020-05-19 1610208
+143    19                            Tootsie 2020-05-19 1311986
+144    20  What The Constitution Means To Me 2020-05-19  489363
+145     1                    Ain't Too Proud 2020-05-26 1576625
+146     2                        All My Sons 2020-05-26  503225
+147     3                      Be More Chill 2020-05-26  448182
+148     4                        Beetlejuice 2020-05-26  833073
+149     5                          Burn This 2020-05-26  770468
+150     6 Gary: A Sequel To Titus Andronicus 2020-05-26  263248
+151     7                          Hadestown 2020-05-26 1197934
+152     8                Hillary and Clinton 2020-05-26  330102
+153     9                                Ink 2020-05-26  422913
+154    10                          King Kong 2020-05-26  700004
+155    11                          King Lear 2020-05-26  358474
+156    12                       Kiss Me Kate 2020-05-26  791721
+157    13                            Network 2020-05-26 1008529
+158    14                           Oklahoma 2020-05-26  604896
+159    15                      The Cher Show 2020-05-26  916761
+160    16                       The Ferryman 2020-05-26  579679
+161    17                           The Prom 2020-05-26  640384
+162    18              To Kill A Mockingbird 2020-05-26 1647412
+163    19                            Tootsie 2020-05-26 1223722
+164    20  What The Constitution Means To Me 2020-05-26  524797
+165     1                    Ain't Too Proud 2020-06-02 1513346
+166     2                        All My Sons 2020-06-02  475818
+167     3                      Be More Chill 2020-06-02  396876
+168     4                        Beetlejuice 2020-06-02  749093
+169     5                          Burn This 2020-06-02  683046
+170     6 Gary: A Sequel To Titus Andronicus 2020-06-02  206060
+171     7                          Hadestown 2020-06-02 1181102
+172     8                Hillary and Clinton 2020-06-02  290537
+173     9                                Ink 2020-06-02  385970
+174    10                          King Kong 2020-06-02  682452
+175    11                          King Lear 2020-06-02  285108
+176    12                       Kiss Me Kate 2020-06-02  740119
+177    13                            Network 2020-06-02 1037755
+178    14                           Oklahoma 2020-06-02  526781
+179    15                      The Cher Show 2020-06-02  788291
+180    16                       The Ferryman 2020-06-02  542335
+181    17                           The Prom 2020-06-02  602277
+182    18              To Kill A Mockingbird 2020-06-02 1593907
+183    19                            Tootsie 2020-06-02 1086945
+184    20  What The Constitution Means To Me 2020-06-02  484311
+> test <- read.table('2019.csv',header=TRUE,sep=",")
+Warning messages:
+1: In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :
+  EOF within quoted string
+2: In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :
+  number of items read is not a multiple of the number of columns
+> test <- read.table('2019.csv',header=TRUE,sep=",",quote=",")
+> test
+    ï..ID                               Show   Week.End Grosses
+1       7                          Hadestown 04/07/2019  615074
+2       8                Hillary and Clinton 04/07/2019  391945
+3       9                                Ink 04/07/2019  258936
+4   ï»¿ID                               Show   Week End Grosses
+5       1                    Ain't Too Proud 04/07/2019 1337083
+6       2                        All My Sons 04/07/2019  248769
+7       3                      Be More Chill 04/07/2019  597580
+8       4                        Beetlejuice 04/07/2019  765711
+9       5                          Burn This 04/07/2019  813664
+10      6  Gary A Sequel To Titus Andronicus 04/07/2019  381334
+11      7                          Hadestown 04/07/2019  615074
+12      8                Hillary and Clinton 04/07/2019  391945
+13      9                                Ink 04/07/2019  258936
+14     10                          King Kong 04/07/2019  688782
+15     11                          King Lear 04/07/2019  473262
+16     12                       Kiss Me Kate 04/07/2019  656862
+17     13                            Network 04/07/2019 1011176
+18     14                           Oklahoma 04/07/2019  451274
+19     15                      The Cher Show 04/07/2019  866212
+20     16                       The Ferryman 04/07/2019  507233
+21     17                           The Prom 04/07/2019  532455
+22     18              To Kill A Mockingbird 04/07/2019 1628150
+23     19                            Tootsie 04/07/2019  796802
+24     20  What The Constitution Means To Me 04/07/2019  410927
+25      1                    Ain't Too Proud 04/14/2019 1342738
+26      2                        All My Sons 04/14/2019  424814
+27      3                      Be More Chill 04/14/2019  554910
+28      4                        Beetlejuice 04/14/2019  686456
+29      5                          Burn This 04/14/2019  762998
+30      6  Gary A Sequel To Titus Andronicus 04/14/2019  388549
+31      7                          Hadestown 04/14/2019  688422
+32      8                Hillary and Clinton 04/14/2019  375438
+33      9                                Ink 04/14/2019  321953
+34     10                          King Kong 04/14/2019  853394
+35     11                          King Lear 04/14/2019  640045
+36     12                       Kiss Me Kate 04/14/2019  743685
+37     13                            Network 04/14/2019 1006511
+38     14                           Oklahoma 04/14/2019  599132
+39     15                      The Cher Show 04/14/2019  879787
+40     16                       The Ferryman 04/14/2019  529019
+41     17                           The Prom 04/14/2019  601260
+42     18              To Kill A Mockingbird 04/14/2019 1505427
+43     19                            Tootsie 04/14/2019  821781
+44     20  What The Constitution Means To Me 04/14/2019  457256
+45      1                    Ain't Too Proud 04/21/2019 1396582
+46      2                        All My Sons 04/21/2019  482132
+47      3                      Be More Chill 04/21/2019  727661
+48      4                        Beetlejuice 04/21/2019  797929
+49      5                          Burn This 04/21/2019  768766
+50      6 Gary: A Sequel To Titus Andronicus 04/21/2019  300613
+51      7                          Hadestown 04/21/2019  776253
+52      8                Hillary and Clinton 04/21/2019  340825
+53      9                                Ink 04/21/2019  316263
+54     10                          King Kong 04/21/2019  986113
+55     11                          King Lear 04/21/2019  608717
+56     12                       Kiss Me Kate 04/21/2019  779009
+57     13                            Network 04/21/2019 1020896
+58     14                           Oklahoma 04/21/2019  604973
+59     15                      The Cher Show 04/21/2019  790986
+60     16                       The Ferryman 04/21/2019  517931
+61     17                           The Prom 04/21/2019  659804
+62     18              To Kill A Mockingbird 04/21/2019 1720828
+63     19                            Tootsie 04/21/2019  907612
+64     20  What The Constitution Means To Me 04/21/2019  462612
+65      1                    Ain't Too Proud 04/28/2019 1445892
+66      2                        All My Sons 04/28/2019  477448
+67      3                      Be More Chill 04/28/2019  630822
+68      4                        Beetlejuice 04/28/2019  834395
+69      5                          Burn This 04/28/2019  932391
+70      6 Gary: A Sequel To Titus Andronicus 04/28/2019  354408
+71      7                          Hadestown 04/28/2019  959450
+72      8                Hillary and Clinton 04/28/2019  493353
+73      9                                Ink 04/28/2019  327495
+74     10                          King Kong 04/28/2019  807055
+75     11                          King Lear 04/28/2019  582678
+76     12                       Kiss Me Kate 04/28/2019  795891
+77     13                            Network 04/28/2019 1052594
+78     14                           Oklahoma 04/28/2019  651744
+79     15                      The Cher Show 04/28/2019  997823
+80     16                       The Ferryman 04/28/2019  595398
+81     17                           The Prom 04/28/2019  615458
+82     18              To Kill A Mockingbird 04/28/2019 1756185
+83     19                            Tootsie 04/28/2019  959001
+84     20  What The Constitution Means To Me 04/28/2019  478075
+85      1                    Ain't Too Proud 05/05/2019 1445734
+86      2                        All My Sons 05/05/2019  469296
+87      3                      Be More Chill 05/05/2019  411116
+88      4                        Beetlejuice 05/05/2019  818904
+89      5                          Burn This 05/05/2019  856397
+90      6 Gary: A Sequel To Titus Andronicus 05/05/2019  314335
+91      7                          Hadestown 05/05/2019 1055456
+92      8                Hillary and Clinton 05/05/2019  429388
+93      9                                Ink 05/05/2019  428623
+94     10                          King Kong 05/05/2019  620397
+95     11                          King Lear 05/05/2019  493146
+96     12                       Kiss Me Kate 05/05/2019  766861
+97     13                            Network 05/05/2019       0
+98     14                           Oklahoma 05/05/2019  625193
+99     15                      The Cher Show 05/05/2019  921366
+100    16                       The Ferryman 05/05/2019  560319
+101    17                           The Prom 05/05/2019  527886
+102    18              To Kill A Mockingbird 05/05/2019 1767464
+103    19                            Tootsie 05/05/2019 1256769
+104    20  What The Constitution Means To Me 05/05/2019  495660
+105     1                    Ain't Too Proud 05/12/2019 1494459
+106     2                        All My Sons 05/12/2019  528645
+107     3                      Be More Chill 05/12/2019  407296
+108     4                        Beetlejuice 05/12/2019  856787
+109     5                          Burn This 05/12/2019  853967
+110     6 Gary: A Sequel To Titus Andronicus 05/12/2019  307771
+111     7                          Hadestown 05/12/2019 1097115
+112     8                Hillary and Clinton 05/12/2019  395739
+113     9                                Ink 05/12/2019  408551
+114    10                          King Kong 05/12/2019  619540
+115    11                          King Lear 05/12/2019  460485
+116    12                       Kiss Me Kate 05/12/2019  819804
+117    13                            Network 05/12/2019  950745
+118    14                           Oklahoma 05/12/2019  615366
+119    15                      The Cher Show 05/12/2019  983477
+120    16                       The Ferryman 05/12/2019  563017
+121    17                           The Prom 05/12/2019  583781
+122    18              To Kill A Mockingbird 05/12/2019 1632527
+123    19                            Tootsie 05/12/2019 1409488
+124    20  What The Constitution Means To Me 05/12/2019  504173
+125     1                    Ain't Too Proud 05/19/2019 1463394
+126     2                        All My Sons 05/19/2019  493421
+127     3                      Be More Chill 05/19/2019  431935
+128     4                        Beetlejuice 05/19/2019  838049
+129     5                          Burn This 05/19/2019  676047
+130     6 Gary: A Sequel To Titus Andronicus 05/19/2019  264914
+131     7                          Hadestown 05/19/2019 1127838
+132     8                Hillary and Clinton 05/19/2019  332785
+133     9                                Ink 05/19/2019  426755
+134    10                          King Kong 05/19/2019  599964
+135    11                          King Lear 05/19/2019  427075
+136    12                       Kiss Me Kate 05/19/2019  772487
+137    13                            Network 05/19/2019 1015836
+138    14                           Oklahoma 05/19/2019  631293
+139    15                      The Cher Show 05/19/2019 1006889
+140    16                       The Ferryman 05/19/2019  566640
+141    17                           The Prom 05/19/2019  627990
+142    18              To Kill A Mockingbird 05/19/2019 1610208
+143    19                            Tootsie 05/19/2019 1311986
+144    20  What The Constitution Means To Me 05/19/2019  489363
+145     1                    Ain't Too Proud 05/26/2019 1576625
+146     2                        All My Sons 05/26/2019  503225
+147     3                      Be More Chill 05/26/2019  448182
+148     4                        Beetlejuice 05/26/2019  833073
+149     5                          Burn This 05/26/2019  770468
+150     6 Gary: A Sequel To Titus Andronicus 05/26/2019  263248
+151     7                          Hadestown 05/26/2019 1197934
+152     8                Hillary and Clinton 05/26/2019  330102
+153     9                                Ink 05/26/2019  422913
+154    10                          King Kong 05/26/2019  700004
+155    11                          King Lear 05/26/2019  358474
+156    12                       Kiss Me Kate 05/26/2019  791721
+157    13                            Network 05/26/2019 1008529
+158    14                           Oklahoma 05/26/2019  604896
+159    15                      The Cher Show 05/26/2019  916761
+160    16                       The Ferryman 05/26/2019  579679
+161    17                           The Prom 05/26/2019  640384
+162    18              To Kill A Mockingbird 05/26/2019 1647412
+163    19                            Tootsie 05/26/2019 1223722
+164    20  What The Constitution Means To Me 05/26/2019  524797
+165     1                    Ain't Too Proud 06/02/2019 1513346
+166     2                        All My Sons 06/02/2019  475818
+167     3                      Be More Chill 06/02/2019  396876
+168     4                        Beetlejuice 06/02/2019  749093
+169     5                          Burn This 06/02/2019  683046
+170     6 Gary: A Sequel To Titus Andronicus 06/02/2019  206060
+171     7                          Hadestown 06/02/2019 1181102
+172     8                Hillary and Clinton 06/02/2019  290537
+173     9                                Ink 06/02/2019  385970
+174    10                          King Kong 06/02/2019  682452
+175    11                          King Lear 06/02/2019  285108
+176    12                       Kiss Me Kate 06/02/2019  740119
+177    13                            Network 06/02/2019 1037755
+178    14                           Oklahoma 06/02/2019  526781
+179    15                      The Cher Show 06/02/2019  788291
+180    16                       The Ferryman 06/02/2019  542335
+181    17                           The Prom 06/02/2019  602277
+182    18              To Kill A Mockingbird 06/02/2019 1593907
+183    19                            Tootsie 06/02/2019 1086945
+184    20  What The Constitution Means To Me 06/02/2019  484311
+> test <- read.table('2019.csv',header=TRUE,sep=",")
+Warning messages:
+1: In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :
+  EOF within quoted string
+2: In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :
+  number of items read is not a multiple of the number of columns
+> tbl <- read.table('2019.csv',header=TRUE,sep=",")
+Warning messages:
+1: In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :
+  EOF within quoted string
+2: In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :
+  number of items read is not a multiple of the number of columns
+> tbl <- read.table('2019.csv',header=TRUE,quote=",",sep=",")
+> tbl
+    ï..ID                               Show   Week.End Grosses
+1       7                          Hadestown 04/07/2019  615074
+2       8                Hillary and Clinton 04/07/2019  391945
+3       9                                Ink 04/07/2019  258936
+4   ï»¿ID                               Show   Week End Grosses
+5       1                    Ain't Too Proud 04/07/2019 1337083
+6       2                        All My Sons 04/07/2019  248769
+7       3                      Be More Chill 04/07/2019  597580
+8       4                        Beetlejuice 04/07/2019  765711
+9       5                          Burn This 04/07/2019  813664
+10      6  Gary A Sequel To Titus Andronicus 04/07/2019  381334
+11      7                          Hadestown 04/07/2019  615074
+12      8                Hillary and Clinton 04/07/2019  391945
+13      9                                Ink 04/07/2019  258936
+14     10                          King Kong 04/07/2019  688782
+15     11                          King Lear 04/07/2019  473262
+16     12                       Kiss Me Kate 04/07/2019  656862
+17     13                            Network 04/07/2019 1011176
+18     14                           Oklahoma 04/07/2019  451274
+19     15                      The Cher Show 04/07/2019  866212
+20     16                       The Ferryman 04/07/2019  507233
+21     17                           The Prom 04/07/2019  532455
+22     18              To Kill A Mockingbird 04/07/2019 1628150
+23     19                            Tootsie 04/07/2019  796802
+24     20  What The Constitution Means To Me 04/07/2019  410927
+25      1                    Ain't Too Proud 04/14/2019 1342738
+26      2                        All My Sons 04/14/2019  424814
+27      3                      Be More Chill 04/14/2019  554910
+28      4                        Beetlejuice 04/14/2019  686456
+29      5                          Burn This 04/14/2019  762998
+30      6  Gary A Sequel To Titus Andronicus 04/14/2019  388549
+31      7                          Hadestown 04/14/2019  688422
+32      8                Hillary and Clinton 04/14/2019  375438
+33      9                                Ink 04/14/2019  321953
+34     10                          King Kong 04/14/2019  853394
+35     11                          King Lear 04/14/2019  640045
+36     12                       Kiss Me Kate 04/14/2019  743685
+37     13                            Network 04/14/2019 1006511
+38     14                           Oklahoma 04/14/2019  599132
+39     15                      The Cher Show 04/14/2019  879787
+40     16                       The Ferryman 04/14/2019  529019
+41     17                           The Prom 04/14/2019  601260
+42     18              To Kill A Mockingbird 04/14/2019 1505427
+43     19                            Tootsie 04/14/2019  821781
+44     20  What The Constitution Means To Me 04/14/2019  457256
+45      1                    Ain't Too Proud 04/21/2019 1396582
+46      2                        All My Sons 04/21/2019  482132
+47      3                      Be More Chill 04/21/2019  727661
+48      4                        Beetlejuice 04/21/2019  797929
+49      5                          Burn This 04/21/2019  768766
+50      6 Gary: A Sequel To Titus Andronicus 04/21/2019  300613
+51      7                          Hadestown 04/21/2019  776253
+52      8                Hillary and Clinton 04/21/2019  340825
+53      9                                Ink 04/21/2019  316263
+54     10                          King Kong 04/21/2019  986113
+55     11                          King Lear 04/21/2019  608717
+56     12                       Kiss Me Kate 04/21/2019  779009
+57     13                            Network 04/21/2019 1020896
+58     14                           Oklahoma 04/21/2019  604973
+59     15                      The Cher Show 04/21/2019  790986
+60     16                       The Ferryman 04/21/2019  517931
+61     17                           The Prom 04/21/2019  659804
+62     18              To Kill A Mockingbird 04/21/2019 1720828
+63     19                            Tootsie 04/21/2019  907612
+64     20  What The Constitution Means To Me 04/21/2019  462612
+65      1                    Ain't Too Proud 04/28/2019 1445892
+66      2                        All My Sons 04/28/2019  477448
+67      3                      Be More Chill 04/28/2019  630822
+68      4                        Beetlejuice 04/28/2019  834395
+69      5                          Burn This 04/28/2019  932391
+70      6 Gary: A Sequel To Titus Andronicus 04/28/2019  354408
+71      7                          Hadestown 04/28/2019  959450
+72      8                Hillary and Clinton 04/28/2019  493353
+73      9                                Ink 04/28/2019  327495
+74     10                          King Kong 04/28/2019  807055
+75     11                          King Lear 04/28/2019  582678
+76     12                       Kiss Me Kate 04/28/2019  795891
+77     13                            Network 04/28/2019 1052594
+78     14                           Oklahoma 04/28/2019  651744
+79     15                      The Cher Show 04/28/2019  997823
+80     16                       The Ferryman 04/28/2019  595398
+81     17                           The Prom 04/28/2019  615458
+82     18              To Kill A Mockingbird 04/28/2019 1756185
+83     19                            Tootsie 04/28/2019  959001
+84     20  What The Constitution Means To Me 04/28/2019  478075
+85      1                    Ain't Too Proud 05/05/2019 1445734
+86      2                        All My Sons 05/05/2019  469296
+87      3                      Be More Chill 05/05/2019  411116
+88      4                        Beetlejuice 05/05/2019  818904
+89      5                          Burn This 05/05/2019  856397
+90      6 Gary: A Sequel To Titus Andronicus 05/05/2019  314335
+91      7                          Hadestown 05/05/2019 1055456
+92      8                Hillary and Clinton 05/05/2019  429388
+93      9                                Ink 05/05/2019  428623
+94     10                          King Kong 05/05/2019  620397
+95     11                          King Lear 05/05/2019  493146
+96     12                       Kiss Me Kate 05/05/2019  766861
+97     13                            Network 05/05/2019       0
+98     14                           Oklahoma 05/05/2019  625193
+99     15                      The Cher Show 05/05/2019  921366
+100    16                       The Ferryman 05/05/2019  560319
+101    17                           The Prom 05/05/2019  527886
+102    18              To Kill A Mockingbird 05/05/2019 1767464
+103    19                            Tootsie 05/05/2019 1256769
+104    20  What The Constitution Means To Me 05/05/2019  495660
+105     1                    Ain't Too Proud 05/12/2019 1494459
+106     2                        All My Sons 05/12/2019  528645
+107     3                      Be More Chill 05/12/2019  407296
+108     4                        Beetlejuice 05/12/2019  856787
+109     5                          Burn This 05/12/2019  853967
+110     6 Gary: A Sequel To Titus Andronicus 05/12/2019  307771
+111     7                          Hadestown 05/12/2019 1097115
+112     8                Hillary and Clinton 05/12/2019  395739
+113     9                                Ink 05/12/2019  408551
+114    10                          King Kong 05/12/2019  619540
+115    11                          King Lear 05/12/2019  460485
+116    12                       Kiss Me Kate 05/12/2019  819804
+117    13                            Network 05/12/2019  950745
+118    14                           Oklahoma 05/12/2019  615366
+119    15                      The Cher Show 05/12/2019  983477
+120    16                       The Ferryman 05/12/2019  563017
+121    17                           The Prom 05/12/2019  583781
+122    18              To Kill A Mockingbird 05/12/2019 1632527
+123    19                            Tootsie 05/12/2019 1409488
+124    20  What The Constitution Means To Me 05/12/2019  504173
+125     1                    Ain't Too Proud 05/19/2019 1463394
+126     2                        All My Sons 05/19/2019  493421
+127     3                      Be More Chill 05/19/2019  431935
+128     4                        Beetlejuice 05/19/2019  838049
+129     5                          Burn This 05/19/2019  676047
+130     6 Gary: A Sequel To Titus Andronicus 05/19/2019  264914
+131     7                          Hadestown 05/19/2019 1127838
+132     8                Hillary and Clinton 05/19/2019  332785
+133     9                                Ink 05/19/2019  426755
+134    10                          King Kong 05/19/2019  599964
+135    11                          King Lear 05/19/2019  427075
+136    12                       Kiss Me Kate 05/19/2019  772487
+137    13                            Network 05/19/2019 1015836
+138    14                           Oklahoma 05/19/2019  631293
+139    15                      The Cher Show 05/19/2019 1006889
+140    16                       The Ferryman 05/19/2019  566640
+141    17                           The Prom 05/19/2019  627990
+142    18              To Kill A Mockingbird 05/19/2019 1610208
+143    19                            Tootsie 05/19/2019 1311986
+144    20  What The Constitution Means To Me 05/19/2019  489363
+145     1                    Ain't Too Proud 05/26/2019 1576625
+146     2                        All My Sons 05/26/2019  503225
+147     3                      Be More Chill 05/26/2019  448182
+148     4                        Beetlejuice 05/26/2019  833073
+149     5                          Burn This 05/26/2019  770468
+150     6 Gary: A Sequel To Titus Andronicus 05/26/2019  263248
+151     7                          Hadestown 05/26/2019 1197934
+152     8                Hillary and Clinton 05/26/2019  330102
+153     9                                Ink 05/26/2019  422913
+154    10                          King Kong 05/26/2019  700004
+155    11                          King Lear 05/26/2019  358474
+156    12                       Kiss Me Kate 05/26/2019  791721
+157    13                            Network 05/26/2019 1008529
+158    14                           Oklahoma 05/26/2019  604896
+159    15                      The Cher Show 05/26/2019  916761
+160    16                       The Ferryman 05/26/2019  579679
+161    17                           The Prom 05/26/2019  640384
+162    18              To Kill A Mockingbird 05/26/2019 1647412
+163    19                            Tootsie 05/26/2019 1223722
+164    20  What The Constitution Means To Me 05/26/2019  524797
+165     1                    Ain't Too Proud 06/02/2019 1513346
+166     2                        All My Sons 06/02/2019  475818
+167     3                      Be More Chill 06/02/2019  396876
+168     4                        Beetlejuice 06/02/2019  749093
+169     5                          Burn This 06/02/2019  683046
+170     6 Gary: A Sequel To Titus Andronicus 06/02/2019  206060
+171     7                          Hadestown 06/02/2019 1181102
+172     8                Hillary and Clinton 06/02/2019  290537
+173     9                                Ink 06/02/2019  385970
+174    10                          King Kong 06/02/2019  682452
+175    11                          King Lear 06/02/2019  285108
+176    12                       Kiss Me Kate 06/02/2019  740119
+177    13                            Network 06/02/2019 1037755
+178    14                           Oklahoma 06/02/2019  526781
+179    15                      The Cher Show 06/02/2019  788291
+180    16                       The Ferryman 06/02/2019  542335
+181    17                           The Prom 06/02/2019  602277
+182    18              To Kill A Mockingbird 06/02/2019 1593907
+183    19                            Tootsie 06/02/2019 1086945
+184    20  What The Constitution Means To Me 06/02/2019  484311
+> twenty <- read.table('2018.csv',header=TRUE,sep=",")
+Warning messages:
+1: In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :
+  EOF within quoted string
+2: In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :
+  number of items read is not a multiple of the number of columns
+> twenty <- read.table('2018.csv',header=TRUE,quote=",",sep=",")
+> twenty
+    ï..ID                               Show   Week.End Grosses
+1       8                Hillary and Clinton 04/07/2019  391945
+2       9                                Ink 04/07/2019  258936
+3      10                          King Kong 04/07/2019  688782
+4   ï»¿ID                               Show   Week End Grosses
+5       1                    Ain't Too Proud 04/07/2019 1337083
+6       2                        All My Sons 04/07/2019  248769
+7       4                        Beetlejuice 04/07/2019  765711
+8       5                          Burn This 04/07/2019  813664
+9       6  Gary A Sequel To Titus Andronicus 04/07/2019  381334
+10      7                          Hadestown 04/07/2019  615074
+11      8                Hillary and Clinton 04/07/2019  391945
+12      9                                Ink 04/07/2019  258936
+13     10                          King Kong 04/07/2019  688782
+14     11                          King Lear 04/07/2019  473262
+15     12                       Kiss Me Kate 04/07/2019  656862
+16     13                            Network 04/07/2019 1011176
+17     14                           Oklahoma 04/07/2019  451274
+18     15                      The Cher Show 04/07/2019  866212
+19     16                       The Ferryman 04/07/2019  507233
+20     17                           The Prom 04/07/2019  532455
+21     18              To Kill A Mockingbird 04/07/2019 1628150
+22     19                            Tootsie 04/07/2019  796802
+23     20  What The Constitution Means To Me 04/07/2019  410927
+24      1                    Ain't Too Proud 04/14/2019 1342738
+25      2                        All My Sons 04/14/2019  424814
+26      3                      Be More Chill 04/14/2019  554910
+27      4                        Beetlejuice 04/14/2019  686456
+28      5                          Burn This 04/14/2019  762998
+29      6  Gary A Sequel To Titus Andronicus 04/14/2019  388549
+30      7                          Hadestown 04/14/2019  688422
+31      8                Hillary and Clinton 04/14/2019  375438
+32      9                                Ink 04/14/2019  321953
+33     10                          King Kong 04/14/2019  853394
+34     11                          King Lear 04/14/2019  640045
+35     12                       Kiss Me Kate 04/14/2019  743685
+36     13                            Network 04/14/2019 1006511
+37     14                           Oklahoma 04/14/2019  599132
+38     15                      The Cher Show 04/14/2019  879787
+39     16                       The Ferryman 04/14/2019  529019
+40     17                           The Prom 04/14/2019  601260
+41     18              To Kill A Mockingbird 04/14/2019 1505427
+42     19                            Tootsie 04/14/2019  821781
+43     20  What The Constitution Means To Me 04/14/2019  457256
+44      1                    Ain't Too Proud 04/21/2019 1396582
+45      2                        All My Sons 04/21/2019  482132
+46      3                      Be More Chill 04/21/2019  727661
+47      4                        Beetlejuice 04/21/2019  797929
+48      5                          Burn This 04/21/2019  768766
+49      6 Gary: A Sequel To Titus Andronicus 04/21/2019  300613
+50      7                          Hadestown 04/21/2019  776253
+51      8                Hillary and Clinton 04/21/2019  340825
+52      9                                Ink 04/21/2019  316263
+53     10                          King Kong 04/21/2019  986113
+54     11                          King Lear 04/21/2019  608717
+55     12                       Kiss Me Kate 04/21/2019  779009
+56     13                            Network 04/21/2019 1020896
+57     14                           Oklahoma 04/21/2019  604973
+58     15                      The Cher Show 04/21/2019  790986
+59     16                       The Ferryman 04/21/2019  517931
+60     17                           The Prom 04/21/2019  659804
+61     18              To Kill A Mockingbird 04/21/2019 1720828
+62     19                            Tootsie 04/21/2019  907612
+63     20  What The Constitution Means To Me 04/21/2019  462612
+64      1                    Ain't Too Proud 04/28/2019 1445892
+65      2                        All My Sons 04/28/2019  477448
+66      3                      Be More Chill 04/28/2019  630822
+67      4                        Beetlejuice 04/28/2019  834395
+68      5                          Burn This 04/28/2019  932391
+69      6 Gary: A Sequel To Titus Andronicus 04/28/2019  354408
+70      7                          Hadestown 04/28/2019  959450
+71      8                Hillary and Clinton 04/28/2019  493353
+72      9                                Ink 04/28/2019  327495
+73     10                          King Kong 04/28/2019  807055
+74     11                          King Lear 04/28/2019  582678
+75     12                       Kiss Me Kate 04/28/2019  795891
+76     13                            Network 04/28/2019 1052594
+77     14                           Oklahoma 04/28/2019  651744
+78     15                      The Cher Show 04/28/2019  997823
+79     16                       The Ferryman 04/28/2019  595398
+80     17                           The Prom 04/28/2019  615458
+81     18              To Kill A Mockingbird 04/28/2019 1756185
+82     19                            Tootsie 04/28/2019  959001
+83     20  What The Constitution Means To Me 04/28/2019  478075
+84      1                    Ain't Too Proud 05/05/2019 1445734
+85      2                        All My Sons 05/05/2019  469296
+86      3                      Be More Chill 05/05/2019  411116
+87      4                        Beetlejuice 05/05/2019  818904
+88      5                          Burn This 05/05/2019  856397
+89      6 Gary: A Sequel To Titus Andronicus 05/05/2019  314335
+90      7                          Hadestown 05/05/2019 1055456
+91      8                Hillary and Clinton 05/05/2019  429388
+92      9                                Ink 05/05/2019  428623
+93     10                          King Kong 05/05/2019  620397
+94     11                          King Lear 05/05/2019  493146
+95     12                       Kiss Me Kate 05/05/2019  766861
+96     13                            Network 05/05/2019       0
+97     14                           Oklahoma 05/05/2019  625193
+98     15                      The Cher Show 05/05/2019  921366
+99     16                       The Ferryman 05/05/2019  560319
+100    17                           The Prom 05/05/2019  527886
+101    18              To Kill A Mockingbird 05/05/2019 1767464
+102    19                            Tootsie 05/05/2019 1256769
+103    20  What The Constitution Means To Me 05/05/2019  495660
+104     1                    Ain't Too Proud 05/12/2019 1494459
+105     2                        All My Sons 05/12/2019  528645
+106     3                      Be More Chill 05/12/2019  407296
+107     4                        Beetlejuice 05/12/2019  856787
+108     5                          Burn This 05/12/2019  853967
+109     6 Gary: A Sequel To Titus Andronicus 05/12/2019  307771
+110     7                          Hadestown 05/12/2019 1097115
+111     8                Hillary and Clinton 05/12/2019  395739
+112     9                                Ink 05/12/2019  408551
+113    10                          King Kong 05/12/2019  619540
+114    11                          King Lear 05/12/2019  460485
+115    12                       Kiss Me Kate 05/12/2019  819804
+116    13                            Network 05/12/2019  950745
+117    14                           Oklahoma 05/12/2019  615366
+118    15                      The Cher Show 05/12/2019  983477
+119    16                       The Ferryman 05/12/2019  563017
+120    17                           The Prom 05/12/2019  583781
+121    18              To Kill A Mockingbird 05/12/2019 1632527
+122    19                            Tootsie 05/12/2019 1409488
+123    20  What The Constitution Means To Me 05/12/2019  504173
+124     1                    Ain't Too Proud 05/19/2019 1463394
+125     2                        All My Sons 05/19/2019  493421
+126     3                      Be More Chill 05/19/2019  431935
+127     4                        Beetlejuice 05/19/2019  838049
+128     5                          Burn This 05/19/2019  676047
+129     6 Gary: A Sequel To Titus Andronicus 05/19/2019  264914
+130     7                          Hadestown 05/19/2019 1127838
+131     8                Hillary and Clinton 05/19/2019  332785
+132     9                                Ink 05/19/2019  426755
+133    10                          King Kong 05/19/2019  599964
+134    11                          King Lear 05/19/2019  427075
+135    12                       Kiss Me Kate 05/19/2019  772487
+136    13                            Network 05/19/2019 1015836
+137    14                           Oklahoma 05/19/2019  631293
+138    15                      The Cher Show 05/19/2019 1006889
+139    16                       The Ferryman 05/19/2019  566640
+140    17                           The Prom 05/19/2019  627990
+141    18              To Kill A Mockingbird 05/19/2019 1610208
+142    19                            Tootsie 05/19/2019 1311986
+143    20  What The Constitution Means To Me 05/19/2019  489363
+144     1                    Ain't Too Proud 05/26/2019 1576625
+145     2                        All My Sons 05/26/2019  503225
+146     3                      Be More Chill 05/26/2019  448182
+147     4                        Beetlejuice 05/26/2019  833073
+148     5                          Burn This 05/26/2019  770468
+149     6 Gary: A Sequel To Titus Andronicus 05/26/2019  263248
+150     7                          Hadestown 05/26/2019 1197934
+151     8                Hillary and Clinton 05/26/2019  330102
+152     9                                Ink 05/26/2019  422913
+153    10                          King Kong 05/26/2019  700004
+154    11                          King Lear 05/26/2019  358474
+155    12                       Kiss Me Kate 05/26/2019  791721
+156    13                            Network 05/26/2019 1008529
+157    14                           Oklahoma 05/26/2019  604896
+158    15                      The Cher Show 05/26/2019  916761
+159    16                       The Ferryman 05/26/2019  579679
+160    17                           The Prom 05/26/2019  640384
+161    18              To Kill A Mockingbird 05/26/2019 1647412
+162    19                            Tootsie 05/26/2019 1223722
+163    20  What The Constitution Means To Me 05/26/2019  524797
+164     1                    Ain't Too Proud 06/02/2019 1513346
+165     2                        All My Sons 06/02/2019  475818
+166     3                      Be More Chill 06/02/2019  396876
+167     4                        Beetlejuice 06/02/2019  749093
+168     5                          Burn This 06/02/2019  683046
+169     6 Gary: A Sequel To Titus Andronicus 06/02/2019  206060
+170     7                          Hadestown 06/02/2019 1181102
+171     8                Hillary and Clinton 06/02/2019  290537
+172     9                                Ink 06/02/2019  385970
+173    10                          King Kong 06/02/2019  682452
+174    11                          King Lear 06/02/2019  285108
+175    12                       Kiss Me Kate 06/02/2019  740119
+176    13                            Network 06/02/2019 1037755
+177    14                           Oklahoma 06/02/2019  526781
+178    15                      The Cher Show 06/02/2019  788291
+179    16                       The Ferryman 06/02/2019  542335
+180    17                           The Prom 06/02/2019  602277
+181    18              To Kill A Mockingbird 06/02/2019 1593907
+182    19                            Tootsie 06/02/2019 1086945
+183    20  What The Constitution Means To Me 06/02/2019  484311
+> tbl <- read.table('2019.csv',header=TRUE,quote"",sep",")
+Error: unexpected string constant in "tbl <- read.table('2019.csv',header=TRUE,quote"""
+> tbl <- read.table('2019.csv',header=TRUE,quote="",sep=",")
+> tbl
+    ï..ID                               Show   Week.End Grosses
+1       1                    Ain't Too Proud 04/07/2019 1337083
+2       2                        All My Sons 04/07/2019  248769
+3       3                      Be More Chill 04/07/2019  597580
+4       4                        Beetlejuice 04/07/2019  765711
+5       5                          Burn This 04/07/2019  813664
+6       6  Gary A Sequel To Titus Andronicus 04/07/2019  381334
+7       7                          Hadestown 04/07/2019  615074
+8       8                Hillary and Clinton 04/07/2019  391945
+9       9                                Ink 04/07/2019  258936
+10     10                          King Kong 04/07/2019  688782
+11     11                          King Lear 04/07/2019  473262
+12     12                       Kiss Me Kate 04/07/2019  656862
+13     13                            Network 04/07/2019 1011176
+14     14                           Oklahoma 04/07/2019  451274
+15     15                      The Cher Show 04/07/2019  866212
+16     16                       The Ferryman 04/07/2019  507233
+17     17                           The Prom 04/07/2019  532455
+18     18              To Kill A Mockingbird 04/07/2019 1628150
+19     19                            Tootsie 04/07/2019  796802
+20     20  What The Constitution Means To Me 04/07/2019  410927
+21      1                    Ain't Too Proud 04/14/2019 1342738
+22      2                        All My Sons 04/14/2019  424814
+23      3                      Be More Chill 04/14/2019  554910
+24      4                        Beetlejuice 04/14/2019  686456
+25      5                          Burn This 04/14/2019  762998
+26      6  Gary A Sequel To Titus Andronicus 04/14/2019  388549
+27      7                          Hadestown 04/14/2019  688422
+28      8                Hillary and Clinton 04/14/2019  375438
+29      9                                Ink 04/14/2019  321953
+30     10                          King Kong 04/14/2019  853394
+31     11                          King Lear 04/14/2019  640045
+32     12                       Kiss Me Kate 04/14/2019  743685
+33     13                            Network 04/14/2019 1006511
+34     14                           Oklahoma 04/14/2019  599132
+35     15                      The Cher Show 04/14/2019  879787
+36     16                       The Ferryman 04/14/2019  529019
+37     17                           The Prom 04/14/2019  601260
+38     18              To Kill A Mockingbird 04/14/2019 1505427
+39     19                            Tootsie 04/14/2019  821781
+40     20  What The Constitution Means To Me 04/14/2019  457256
+41      1                    Ain't Too Proud 04/21/2019 1396582
+42      2                        All My Sons 04/21/2019  482132
+43      3                      Be More Chill 04/21/2019  727661
+44      4                        Beetlejuice 04/21/2019  797929
+45      5                          Burn This 04/21/2019  768766
+46      6 Gary: A Sequel To Titus Andronicus 04/21/2019  300613
+47      7                          Hadestown 04/21/2019  776253
+48      8                Hillary and Clinton 04/21/2019  340825
+49      9                                Ink 04/21/2019  316263
+50     10                          King Kong 04/21/2019  986113
+51     11                          King Lear 04/21/2019  608717
+52     12                       Kiss Me Kate 04/21/2019  779009
+53     13                            Network 04/21/2019 1020896
+54     14                           Oklahoma 04/21/2019  604973
+55     15                      The Cher Show 04/21/2019  790986
+56     16                       The Ferryman 04/21/2019  517931
+57     17                           The Prom 04/21/2019  659804
+58     18              To Kill A Mockingbird 04/21/2019 1720828
+59     19                            Tootsie 04/21/2019  907612
+60     20  What The Constitution Means To Me 04/21/2019  462612
+61      1                    Ain't Too Proud 04/28/2019 1445892
+62      2                        All My Sons 04/28/2019  477448
+63      3                      Be More Chill 04/28/2019  630822
+64      4                        Beetlejuice 04/28/2019  834395
+65      5                          Burn This 04/28/2019  932391
+66      6 Gary: A Sequel To Titus Andronicus 04/28/2019  354408
+67      7                          Hadestown 04/28/2019  959450
+68      8                Hillary and Clinton 04/28/2019  493353
+69      9                                Ink 04/28/2019  327495
+70     10                          King Kong 04/28/2019  807055
+71     11                          King Lear 04/28/2019  582678
+72     12                       Kiss Me Kate 04/28/2019  795891
+73     13                            Network 04/28/2019 1052594
+74     14                           Oklahoma 04/28/2019  651744
+75     15                      The Cher Show 04/28/2019  997823
+76     16                       The Ferryman 04/28/2019  595398
+77     17                           The Prom 04/28/2019  615458
+78     18              To Kill A Mockingbird 04/28/2019 1756185
+79     19                            Tootsie 04/28/2019  959001
+80     20  What The Constitution Means To Me 04/28/2019  478075
+81      1                    Ain't Too Proud 05/05/2019 1445734
+82      2                        All My Sons 05/05/2019  469296
+83      3                      Be More Chill 05/05/2019  411116
+84      4                        Beetlejuice 05/05/2019  818904
+85      5                          Burn This 05/05/2019  856397
+86      6 Gary: A Sequel To Titus Andronicus 05/05/2019  314335
+87      7                          Hadestown 05/05/2019 1055456
+88      8                Hillary and Clinton 05/05/2019  429388
+89      9                                Ink 05/05/2019  428623
+90     10                          King Kong 05/05/2019  620397
+91     11                          King Lear 05/05/2019  493146
+92     12                       Kiss Me Kate 05/05/2019  766861
+93     13                            Network 05/05/2019       0
+94     14                           Oklahoma 05/05/2019  625193
+95     15                      The Cher Show 05/05/2019  921366
+96     16                       The Ferryman 05/05/2019  560319
+97     17                           The Prom 05/05/2019  527886
+98     18              To Kill A Mockingbird 05/05/2019 1767464
+99     19                            Tootsie 05/05/2019 1256769
+100    20  What The Constitution Means To Me 05/05/2019  495660
+101     1                    Ain't Too Proud 05/12/2019 1494459
+102     2                        All My Sons 05/12/2019  528645
+103     3                      Be More Chill 05/12/2019  407296
+104     4                        Beetlejuice 05/12/2019  856787
+105     5                          Burn This 05/12/2019  853967
+106     6 Gary: A Sequel To Titus Andronicus 05/12/2019  307771
+107     7                          Hadestown 05/12/2019 1097115
+108     8                Hillary and Clinton 05/12/2019  395739
+109     9                                Ink 05/12/2019  408551
+110    10                          King Kong 05/12/2019  619540
+111    11                          King Lear 05/12/2019  460485
+112    12                       Kiss Me Kate 05/12/2019  819804
+113    13                            Network 05/12/2019  950745
+114    14                           Oklahoma 05/12/2019  615366
+115    15                      The Cher Show 05/12/2019  983477
+116    16                       The Ferryman 05/12/2019  563017
+117    17                           The Prom 05/12/2019  583781
+118    18              To Kill A Mockingbird 05/12/2019 1632527
+119    19                            Tootsie 05/12/2019 1409488
+120    20  What The Constitution Means To Me 05/12/2019  504173
+121     1                    Ain't Too Proud 05/19/2019 1463394
+122     2                        All My Sons 05/19/2019  493421
+123     3                      Be More Chill 05/19/2019  431935
+124     4                        Beetlejuice 05/19/2019  838049
+125     5                          Burn This 05/19/2019  676047
+126     6 Gary: A Sequel To Titus Andronicus 05/19/2019  264914
+127     7                          Hadestown 05/19/2019 1127838
+128     8                Hillary and Clinton 05/19/2019  332785
+129     9                                Ink 05/19/2019  426755
+130    10                          King Kong 05/19/2019  599964
+131    11                          King Lear 05/19/2019  427075
+132    12                       Kiss Me Kate 05/19/2019  772487
+133    13                            Network 05/19/2019 1015836
+134    14                           Oklahoma 05/19/2019  631293
+135    15                      The Cher Show 05/19/2019 1006889
+136    16                       The Ferryman 05/19/2019  566640
+137    17                           The Prom 05/19/2019  627990
+138    18              To Kill A Mockingbird 05/19/2019 1610208
+139    19                            Tootsie 05/19/2019 1311986
+140    20  What The Constitution Means To Me 05/19/2019  489363
+141     1                    Ain't Too Proud 05/26/2019 1576625
+142     2                        All My Sons 05/26/2019  503225
+143     3                      Be More Chill 05/26/2019  448182
+144     4                        Beetlejuice 05/26/2019  833073
+145     5                          Burn This 05/26/2019  770468
+146     6 Gary: A Sequel To Titus Andronicus 05/26/2019  263248
+147     7                          Hadestown 05/26/2019 1197934
+148     8                Hillary and Clinton 05/26/2019  330102
+149     9                                Ink 05/26/2019  422913
+150    10                          King Kong 05/26/2019  700004
+151    11                          King Lear 05/26/2019  358474
+152    12                       Kiss Me Kate 05/26/2019  791721
+153    13                            Network 05/26/2019 1008529
+154    14                           Oklahoma 05/26/2019  604896
+155    15                      The Cher Show 05/26/2019  916761
+156    16                       The Ferryman 05/26/2019  579679
+157    17                           The Prom 05/26/2019  640384
+158    18              To Kill A Mockingbird 05/26/2019 1647412
+159    19                            Tootsie 05/26/2019 1223722
+160    20  What The Constitution Means To Me 05/26/2019  524797
+161     1                    Ain't Too Proud 06/02/2019 1513346
+162     2                        All My Sons 06/02/2019  475818
+163     3                      Be More Chill 06/02/2019  396876
+164     4                        Beetlejuice 06/02/2019  749093
+165     5                          Burn This 06/02/2019  683046
+166     6 Gary: A Sequel To Titus Andronicus 06/02/2019  206060
+167     7                          Hadestown 06/02/2019 1181102
+168     8                Hillary and Clinton 06/02/2019  290537
+169     9                                Ink 06/02/2019  385970
+170    10                          King Kong 06/02/2019  682452
+171    11                          King Lear 06/02/2019  285108
+172    12                       Kiss Me Kate 06/02/2019  740119
+173    13                            Network 06/02/2019 1037755
+174    14                           Oklahoma 06/02/2019  526781
+175    15                      The Cher Show 06/02/2019  788291
+176    16                       The Ferryman 06/02/2019  542335
+177    17                           The Prom 06/02/2019  602277
+178    18              To Kill A Mockingbird 06/02/2019 1593907
+179    19                            Tootsie 06/02/2019 1086945
+180    20  What The Constitution Means To Me 06/02/2019  484311
+> weekend <- tbl$Week.End
+> show <- tbl$Show
+> ID <- tbl$ID
+> grosses <- tbl$Grosses
+> tbl$Week.End <- as.Date(tbl$Weekend, format="%m/%d/%y")
+Error in `$<-.data.frame`(`*tmp*`, Week.End, value = numeric(0)) : 
+  replacement has 0 rows, data has 180
+> tbl$Week.End <- as.Date(tbl$Week.End, format="%m/%d/%y")
+> tbl %>%
++ ggplot( aes(x = weekend, y = grosses)) + geom_point()
+> tbl %>%
++ ggplot( aes(x = weekend, y = grosses, colour = show)) + geom_point()
+> 
