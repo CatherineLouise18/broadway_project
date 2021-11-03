@@ -1,0 +1,7 @@
+> with(tbl, text3D(ticket, weekend, grosses,
++ labels = rownames(tbl),
++ col = gg.col(100), theta = 60, phi = 20,
++ xlab = "Ticket", ylab = "Week End", zlab = "Grosses",
++ main = "Test", cex = 0.6,
++ bty = "g", ticktype = "detailed", d = 2,
++  adj = 0.5, font = 2))

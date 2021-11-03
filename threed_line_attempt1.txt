@@ -1,0 +1,2 @@
+scatter3D(nominations, ticket, grosses, phi = 0, bty = "g", type = "h",
++ ticktype = "detailed", pch = 19, cex = 0.5)

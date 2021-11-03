@@ -1,0 +1,11 @@
+"ï..Show","Week_End","Ticket","Nominations","Wins","Grosses"
+"Be More Chill",NA,98.69,0,0,630822
+"Be More Chill",NA,84.87,0,0,411116
+"Be More Chill",NA,85.87,1,0,407296
+"Be More Chill",NA,72.45,1,0,431935
+"Be More Chill",NA,78.84,1,0,448182
+"Be More Chill",NA,80.02,1,0,396876
+"Be More Chill",NA,80.8,1,0,389761
+"Be More Chill",NA,90.77,1,0,416560
+"Be More Chill",NA,90.86,1,0,459379
+"Be More Chill",NA,86.7,1,0,497570
