@@ -1,0 +1,18 @@
+library(plot3D)
+library(tidyverse)
+library(readxl)
+library(rgl)
+library(ggplot2)
+> with(tbl, plot3d(ticket, weekend, grosses,
++ col=showcolour, size = 25,
++ xlab = "Average Ticket Price ($)", ylab = "Week End", zlab = "Grosses ($)",
++ main = "Average Ticket Price vs. Grosses Before and After the 9th May 2019 Tony Award Nominations"))
+> legend3d("topright", legend = paste('Type', c(showcolour))))
+Error: unexpected ')' in "legend3d("topright", legend = paste('Type', c(showcolour))))"
+> legend3d("topright", legend = paste('Type', c(showcolour)))
+> legend3d("topright", legend = paste('Type', c(show)))
+> legend3d("topright", legend = paste(c(show)))
+> legend3d(legend = paste(showcolour, c(show)))
+Error in (function (x, y = NULL, legend, fill = NULL, col = par("col"),  : 
+  argument "x" is missing, with no default
+> legend3d("topright", legend = paste(showcolour, c(show)))
