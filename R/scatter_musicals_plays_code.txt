@@ -1,0 +1,886 @@
+
+R version 4.1.1 (2021-08-10) -- "Kick Things"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: i386-w64-mingw32/i386 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> library(tidyverse)
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.5     v stringr 1.4.0
+v tidyr   1.1.4     v forcats 0.5.1
+v readr   2.0.2     
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+> library(plotly)
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+> library(ggplot2)
+> tbl <- read.table('scatter_musicals_plays.csv',header=TRUE,quote="",sep=",")
+> type <- tbl$Type
+> ticket <- tbl$Ticket
+> attendance <- tbl$Attendance
+> library(hrbrthemes)
+Registering Windows fonts with R
+NOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.
+      Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and
+      if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow
+> ggplot(tbl, aes(x=ticket,y=attendance,color=type)) +
++ geom_point(size=6) +
++ theme_ipsum()
+Warning messages:
+1: In grid.Call(C_stringMetric, as.graphicsAnnot(x$label)) :
+  font family not found in Windows font database
+2: In grid.Call(C_stringMetric, as.graphicsAnnot(x$label)) :
+  font family not found in Windows font database
+3: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+4: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+5: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+6: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+7: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+8: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+9: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+> tbl <- read.table('scatter_musicals_plays.csv',header=TRUE,quote="",sep=",")
+> type <- tbl$Type
+> ticket <- tbl$Ticket
+> attendance <- tbl$Attendance
+> ggplot(tbl, aes(x=ticket,y=attendance,color=type)) +
++ geom_point(size=6) +
++ theme_ipsum()
+Warning messages:
+1: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+2: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+3: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+4: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+5: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+6: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+7: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+8: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+> tbl
+   ï..Type Ticket Attendance
+1        1 127.22      11365
+2        2  81.28       5874
+3        1  98.69       6392
+4        1  69.67      11977
+5        2 124.83       7469
+6        2  61.77       5738
+7        1 129.36       7417
+8        2  80.09       6160
+9        2  71.16       4602
+10       1  79.31      10176
+11       2  93.92       6204
+12       1 100.06       7954
+13       2 146.25       7197
+14       1 123.76       5266
+15       1 105.10       9494
+16       2 102.32       5819
+17       1  82.93       7421
+18       2 150.60      11661
+19       1  93.54      10252
+20       2 105.09       4549
+21       1 133.25      11357
+22       2  91.49       5201
+23       1  80.02       4960
+24       1  78.38       9557
+25       2 110.87       6161
+26       2  41.82       4927
+27       1 158.84       7436
+28       2  55.17       5266
+29       2  96.18       4013
+30       1  71.33       9567
+31       2  56.68       5030
+32       1 100.30       7379
+33       2 142.29       7293
+34       1 101.15       5208
+35       1 103.57       7611
+36       2  97.88       5541
+37       1  86.67       6949
+38       2 137.16      11621
+39       1 102.62      10592
+40       2 107.05       4524
+41       1 132.37      11292
+42       2   0.00          0
+43       1  76.53       5791
+44       1  87.26      11090
+45       2  93.80       7033
+46       2   0.00          0
+47       1 187.68       7445
+48       2   0.00          0
+49       2  80.83       4935
+50       1  71.76       9289
+51       2   0.00          0
+52       1   0.00          0
+53       2   0.00          0
+54       1 105.00       4961
+55       1  88.04       7384
+56       2 117.53       8080
+57       1  85.57       7646
+58       2 163.00      11660
+59       1  95.69       8894
+60       2 105.40       2298
+61       1 131.17      11300
+62       2   0.00          0
+63       1  87.48       6227
+64       1  94.04      11251
+65       2   0.00          0
+66       2   0.00          0
+67       1 177.93       7442
+68       2   0.00          0
+69       2   0.00          0
+70       1  71.01      10977
+71       2   0.00          0
+72       1   0.00          0
+73       2   0.00          0
+74       1 107.36       4878
+75       1  97.34       8222
+76       2   0.00          0
+77       1  99.32       8151
+78       2 164.38      11656
+79       1  90.27       9495
+80       2 110.44       4605
+> type
+NULL
+> tbl$Type
+NULL
+> tbl <- read.table('scatter_musicals_plays.csv',header=TRUE,sep=",")
+> type <- tbl$Type
+> ticket <- tbl$Ticket
+> attendance <- tbl$Attendance
+> ggplot(tbl, aes(x=ticket,y=attendance,color=type)) +
++  geom_point(size=6) +
++ theme_ipsum()
+Warning messages:
+1: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+2: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+3: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+4: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+5: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+6: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+7: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+8: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+> type
+NULL
+> attendance
+ [1] 11365  5874  6392 11977  7469  5738  7417  6160  4602 10176  6204  7954
+[13]  7197  5266  9494  5819  7421 11661 10252  4549 11357  5201  4960  9557
+[25]  6161  4927  7436  5266  4013  9567  5030  7379  7293  5208  7611  5541
+[37]  6949 11621 10592  4524 11292     0  5791 11090  7033     0  7445     0
+[49]  4935  9289     0     0     0  4961  7384  8080  7646 11660  8894  2298
+[61] 11300     0  6227 11251     0     0  7442     0     0 10977     0     0
+[73]     0  4878  8222     0  8151 11656  9495  4605
+> ticket
+ [1] 127.22  81.28  98.69  69.67 124.83  61.77 129.36  80.09  71.16  79.31
+[11]  93.92 100.06 146.25 123.76 105.10 102.32  82.93 150.60  93.54 105.09
+[21] 133.25  91.49  80.02  78.38 110.87  41.82 158.84  55.17  96.18  71.33
+[31]  56.68 100.30 142.29 101.15 103.57  97.88  86.67 137.16 102.62 107.05
+[41] 132.37   0.00  76.53  87.26  93.80   0.00 187.68   0.00  80.83  71.76
+[51]   0.00   0.00   0.00 105.00  88.04 117.53  85.57 163.00  95.69 105.40
+[61] 131.17   0.00  87.48  94.04   0.00   0.00 177.93   0.00   0.00  71.01
+[71]   0.00   0.00   0.00 107.36  97.34   0.00  99.32 164.38  90.27 110.44
+> tbl <- read.table('scatter_musicals_plays.csv',header=TRUE)
+There were 50 or more warnings (use warnings() to see the first 50)
+> tbl <- read.table('scatter_musicals_plays.csv',header=FALSE,sep=",")
+> type <- tbl$Type
+> ticket <- tbl$Ticket
+> attendance <- tbl$Attendance
+> ggplot(tbl, aes(x=ticket,y=attendance,color=type)) +
++ geom_point(size=6) +
++ theme_ipsum()
+Error: geom_point requires the following missing aesthetics: x and y
+Run `rlang::last_error()` to see where the error occurred.
+>  tbl <- read.table('scatter_musicals_plays.csv',header=TRUE,sep=",")
+> tbl
+   ï..Type Ticket Attendance
+1        1 127.22      11365
+2        2  81.28       5874
+3        1  98.69       6392
+4        1  69.67      11977
+5        2 124.83       7469
+6        2  61.77       5738
+7        1 129.36       7417
+8        2  80.09       6160
+9        2  71.16       4602
+10       1  79.31      10176
+11       2  93.92       6204
+12       1 100.06       7954
+13       2 146.25       7197
+14       1 123.76       5266
+15       1 105.10       9494
+16       2 102.32       5819
+17       1  82.93       7421
+18       2 150.60      11661
+19       1  93.54      10252
+20       2 105.09       4549
+21       1 133.25      11357
+22       2  91.49       5201
+23       1  80.02       4960
+24       1  78.38       9557
+25       2 110.87       6161
+26       2  41.82       4927
+27       1 158.84       7436
+28       2  55.17       5266
+29       2  96.18       4013
+30       1  71.33       9567
+31       2  56.68       5030
+32       1 100.30       7379
+33       2 142.29       7293
+34       1 101.15       5208
+35       1 103.57       7611
+36       2  97.88       5541
+37       1  86.67       6949
+38       2 137.16      11621
+39       1 102.62      10592
+40       2 107.05       4524
+41       1 132.37      11292
+42       2   0.00          0
+43       1  76.53       5791
+44       1  87.26      11090
+45       2  93.80       7033
+46       2   0.00          0
+47       1 187.68       7445
+48       2   0.00          0
+49       2  80.83       4935
+50       1  71.76       9289
+51       2   0.00          0
+52       1   0.00          0
+53       2   0.00          0
+54       1 105.00       4961
+55       1  88.04       7384
+56       2 117.53       8080
+57       1  85.57       7646
+58       2 163.00      11660
+59       1  95.69       8894
+60       2 105.40       2298
+61       1 131.17      11300
+62       2   0.00          0
+63       1  87.48       6227
+64       1  94.04      11251
+65       2   0.00          0
+66       2   0.00          0
+67       1 177.93       7442
+68       2   0.00          0
+69       2   0.00          0
+70       1  71.01      10977
+71       2   0.00          0
+72       1   0.00          0
+73       2   0.00          0
+74       1 107.36       4878
+75       1  97.34       8222
+76       2   0.00          0
+77       1  99.32       8151
+78       2 164.38      11656
+79       1  90.27       9495
+80       2 110.44       4605
+> type
+NULL
+> type <- tbl$Type
+> type
+NULL
+> ticket <- tbl$Ticket
+> attendance <- tbl$Attendance
+> ggplot(tbl, aes(x=ticket,y=attendance,color=type)) +
++ geom_point(size=6) +
++ theme_ipsum()
+Warning messages:
+1: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+2: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+3: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+4: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+5: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+6: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+7: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+8: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+> tbl <- read.table('scatter_musicals_plays.xlsx',header=TRUE,quote="",sep=",")
+Warning messages:
+1: In read.table("scatter_musicals_plays.xlsx", header = TRUE, quote = "",  :
+  line 1 appears to contain embedded nulls
+2: In read.table("scatter_musicals_plays.xlsx", header = TRUE, quote = "",  :
+  incomplete final line found by readTableHeader on 'scatter_musicals_plays.xlsx'
+> tbl <- read.table("scatter_musicals_plays.csv",header=TRUE,quote="",sep=",")
+> ticket <- tbl$Ticket
+> attendance <- tbl$Attendance
+> type <- tbl$Type
+> type
+NULL
+> ggplot(tbl, aes(x=ticket,y=attendance,color=type)) +
++ geom_point(size=6) +
++ theme_ipsum()
+Warning messages:
+1: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+2: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+3: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+4: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+5: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+6: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+7: In grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+8: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font family not found in Windows font database
+> tbl <- read.table("scatter_musicals_plays.csv",header=TRUE,quote="",sep=",")
+> ticket <- tbl$Ticket
+> attendance <- tbl$Attendance
+> type <- tbl$Type
+> type
+NULL
+> tbl
+   ï..Type Ticket Attendance
+1        1 127.22      11365
+2        2  81.28       5874
+3        1  98.69       6392
+4        1  69.67      11977
+5        2 124.83       7469
+6        2  61.77       5738
+7        1 129.36       7417
+8        2  80.09       6160
+9        2  71.16       4602
+10       1  79.31      10176
+11       2  93.92       6204
+12       1 100.06       7954
+13       2 146.25       7197
+14       1 123.76       5266
+15       1 105.10       9494
+16       2 102.32       5819
+17       1  82.93       7421
+18       2 150.60      11661
+19       1  93.54      10252
+20       2 105.09       4549
+21       1 133.25      11357
+22       2  91.49       5201
+23       1  80.02       4960
+24       1  78.38       9557
+25       2 110.87       6161
+26       2  41.82       4927
+27       1 158.84       7436
+28       2  55.17       5266
+29       2  96.18       4013
+30       1  71.33       9567
+31       2  56.68       5030
+32       1 100.30       7379
+33       2 142.29       7293
+34       1 101.15       5208
+35       1 103.57       7611
+36       2  97.88       5541
+37       1  86.67       6949
+38       2 137.16      11621
+39       1 102.62      10592
+40       2 107.05       4524
+41       1 132.37      11292
+42       2   0.00          0
+43       1  76.53       5791
+44       1  87.26      11090
+45       2  93.80       7033
+46       2   0.00          0
+47       1 187.68       7445
+48       2   0.00          0
+49       2  80.83       4935
+50       1  71.76       9289
+51       2   0.00          0
+52       1   0.00          0
+53       2   0.00          0
+54       1 105.00       4961
+55       1  88.04       7384
+56       2 117.53       8080
+57       1  85.57       7646
+58       2 163.00      11660
+59       1  95.69       8894
+60       2 105.40       2298
+61       1 131.17      11300
+62       2   0.00          0
+63       1  87.48       6227
+64       1  94.04      11251
+65       2   0.00          0
+66       2   0.00          0
+67       1 177.93       7442
+68       2   0.00          0
+69       2   0.00          0
+70       1  71.01      10977
+71       2   0.00          0
+72       1   0.00          0
+73       2   0.00          0
+74       1 107.36       4878
+75       1  97.34       8222
+76       2   0.00          0
+77       1  99.32       8151
+78       2 164.38      11656
+79       1  90.27       9495
+80       2 110.44       4605
+> class(ticket)
+[1] "numeric"
+> class(attendance)
+[1] "integer"
+> class(type)
+[1] "NULL"
+> ticket
+ [1] 127.22  81.28  98.69  69.67 124.83  61.77 129.36  80.09  71.16  79.31
+[11]  93.92 100.06 146.25 123.76 105.10 102.32  82.93 150.60  93.54 105.09
+[21] 133.25  91.49  80.02  78.38 110.87  41.82 158.84  55.17  96.18  71.33
+[31]  56.68 100.30 142.29 101.15 103.57  97.88  86.67 137.16 102.62 107.05
+[41] 132.37   0.00  76.53  87.26  93.80   0.00 187.68   0.00  80.83  71.76
+[51]   0.00   0.00   0.00 105.00  88.04 117.53  85.57 163.00  95.69 105.40
+[61] 131.17   0.00  87.48  94.04   0.00   0.00 177.93   0.00   0.00  71.01
+[71]   0.00   0.00   0.00 107.36  97.34   0.00  99.32 164.38  90.27 110.44
+> attendance
+ [1] 11365  5874  6392 11977  7469  5738  7417  6160  4602 10176  6204  7954
+[13]  7197  5266  9494  5819  7421 11661 10252  4549 11357  5201  4960  9557
+[25]  6161  4927  7436  5266  4013  9567  5030  7379  7293  5208  7611  5541
+[37]  6949 11621 10592  4524 11292     0  5791 11090  7033     0  7445     0
+[49]  4935  9289     0     0     0  4961  7384  8080  7646 11660  8894  2298
+[61] 11300     0  6227 11251     0     0  7442     0     0 10977     0     0
+[73]     0  4878  8222     0  8151 11656  9495  4605
+> type
+NULL
+> tbl <- read.table("scatter_musicals_plays.csv",header=TRUE,quote="",sep=",")
+> ticket <- tbl$Ticket
+> attendance <- tbl$Attendance
+> mp <- tbl$MP
+> mp
+NULL
+> tbl <- read.csv("scatter_musicals_plays.csv")
+> ticket <- tbl$Ticket
+> type <- tbl$Type
+> attendance tbl$Attendance
+Error: unexpected symbol in "attendance tbl"
+> attendance <- tbl$Attendance
+> type
+NULL
+> tbl
+   ï..MP Ticket Attendance
+1      1 127.22      11365
+2      2  81.28       5874
+3      1  98.69       6392
+4      1  69.67      11977
+5      2 124.83       7469
+6      2  61.77       5738
+7      1 129.36       7417
+8      2  80.09       6160
+9      2  71.16       4602
+10     1  79.31      10176
+11     2  93.92       6204
+12     1 100.06       7954
+13     2 146.25       7197
+14     1 123.76       5266
+15     1 105.10       9494
+16     2 102.32       5819
+17     1  82.93       7421
+18     2 150.60      11661
+19     1  93.54      10252
+20     2 105.09       4549
+21     1 133.25      11357
+22     2  91.49       5201
+23     1  80.02       4960
+24     1  78.38       9557
+25     2 110.87       6161
+26     2  41.82       4927
+27     1 158.84       7436
+28     2  55.17       5266
+29     2  96.18       4013
+30     1  71.33       9567
+31     2  56.68       5030
+32     1 100.30       7379
+33     2 142.29       7293
+34     1 101.15       5208
+35     1 103.57       7611
+36     2  97.88       5541
+37     1  86.67       6949
+38     2 137.16      11621
+39     1 102.62      10592
+40     2 107.05       4524
+41     1 132.37      11292
+42     2   0.00          0
+43     1  76.53       5791
+44     1  87.26      11090
+45     2  93.80       7033
+46     2   0.00          0
+47     1 187.68       7445
+48     2   0.00          0
+49     2  80.83       4935
+50     1  71.76       9289
+51     2   0.00          0
+52     1   0.00          0
+53     2   0.00          0
+54     1 105.00       4961
+55     1  88.04       7384
+56     2 117.53       8080
+57     1  85.57       7646
+58     2 163.00      11660
+59     1  95.69       8894
+60     2 105.40       2298
+61     1 131.17      11300
+62     2   0.00          0
+63     1  87.48       6227
+64     1  94.04      11251
+65     2   0.00          0
+66     2   0.00          0
+67     1 177.93       7442
+68     2   0.00          0
+69     2   0.00          0
+70     1  71.01      10977
+71     2   0.00          0
+72     1   0.00          0
+73     2   0.00          0
+74     1 107.36       4878
+75     1  97.34       8222
+76     2   0.00          0
+77     1  99.32       8151
+78     2 164.38      11656
+79     1  90.27       9495
+80     2 110.44       4605
+> attendance
+ [1] 11365  5874  6392 11977  7469  5738  7417  6160  4602 10176  6204  7954
+[13]  7197  5266  9494  5819  7421 11661 10252  4549 11357  5201  4960  9557
+[25]  6161  4927  7436  5266  4013  9567  5030  7379  7293  5208  7611  5541
+[37]  6949 11621 10592  4524 11292     0  5791 11090  7033     0  7445     0
+[49]  4935  9289     0     0     0  4961  7384  8080  7646 11660  8894  2298
+[61] 11300     0  6227 11251     0     0  7442     0     0 10977     0     0
+[73]     0  4878  8222     0  8151 11656  9495  4605
+> ticket
+ [1] 127.22  81.28  98.69  69.67 124.83  61.77 129.36  80.09  71.16  79.31
+[11]  93.92 100.06 146.25 123.76 105.10 102.32  82.93 150.60  93.54 105.09
+[21] 133.25  91.49  80.02  78.38 110.87  41.82 158.84  55.17  96.18  71.33
+[31]  56.68 100.30 142.29 101.15 103.57  97.88  86.67 137.16 102.62 107.05
+[41] 132.37   0.00  76.53  87.26  93.80   0.00 187.68   0.00  80.83  71.76
+[51]   0.00   0.00   0.00 105.00  88.04 117.53  85.57 163.00  95.69 105.40
+[61] 131.17   0.00  87.48  94.04   0.00   0.00 177.93   0.00   0.00  71.01
+[71]   0.00   0.00   0.00 107.36  97.34   0.00  99.32 164.38  90.27 110.44
+> mp <- tbl$MP
+> mp
+NULL
+> tbl <- read.table("scatter_musicals_plays.csv",header=TRUE,quote="",sep=",")
+> tbl
+   ï..Type Ticket Attendance
+1        1 127.22      11365
+2        2  81.28       5874
+3        1  98.69       6392
+4        1  69.67      11977
+5        2 124.83       7469
+6        2  61.77       5738
+7        1 129.36       7417
+8        2  80.09       6160
+9        2  71.16       4602
+10       1  79.31      10176
+11       2  93.92       6204
+12       1 100.06       7954
+13       2 146.25       7197
+14       1 123.76       5266
+15       1 105.10       9494
+16       2 102.32       5819
+17       1  82.93       7421
+18       2 150.60      11661
+19       1  93.54      10252
+20       2 105.09       4549
+21       1 133.25      11357
+22       2  91.49       5201
+23       1  80.02       4960
+24       1  78.38       9557
+25       2 110.87       6161
+26       2  41.82       4927
+27       1 158.84       7436
+28       2  55.17       5266
+29       2  96.18       4013
+30       1  71.33       9567
+31       2  56.68       5030
+32       1 100.30       7379
+33       2 142.29       7293
+34       1 101.15       5208
+35       1 103.57       7611
+36       2  97.88       5541
+37       1  86.67       6949
+38       2 137.16      11621
+39       1 102.62      10592
+40       2 107.05       4524
+41       1 132.37      11292
+42       2   0.00          0
+43       1  76.53       5791
+44       1  87.26      11090
+45       2  93.80       7033
+46       2   0.00          0
+47       1 187.68       7445
+48       2   0.00          0
+49       2  80.83       4935
+50       1  71.76       9289
+51       2   0.00          0
+52       1   0.00          0
+53       2   0.00          0
+54       1 105.00       4961
+55       1  88.04       7384
+56       2 117.53       8080
+57       1  85.57       7646
+58       2 163.00      11660
+59       1  95.69       8894
+60       2 105.40       2298
+61       1 131.17      11300
+62       2   0.00          0
+63       1  87.48       6227
+64       1  94.04      11251
+65       2   0.00          0
+66       2   0.00          0
+67       1 177.93       7442
+68       2   0.00          0
+69       2   0.00          0
+70       1  71.01      10977
+71       2   0.00          0
+72       1   0.00          0
+73       2   0.00          0
+74       1 107.36       4878
+75       1  97.34       8222
+76       2   0.00          0
+77       1  99.32       8151
+78       2 164.38      11656
+79       1  90.27       9495
+80       2 110.44       4605
+> print(tbl)
+   ï..Type Ticket Attendance
+1        1 127.22      11365
+2        2  81.28       5874
+3        1  98.69       6392
+4        1  69.67      11977
+5        2 124.83       7469
+6        2  61.77       5738
+7        1 129.36       7417
+8        2  80.09       6160
+9        2  71.16       4602
+10       1  79.31      10176
+11       2  93.92       6204
+12       1 100.06       7954
+13       2 146.25       7197
+14       1 123.76       5266
+15       1 105.10       9494
+16       2 102.32       5819
+17       1  82.93       7421
+18       2 150.60      11661
+19       1  93.54      10252
+20       2 105.09       4549
+21       1 133.25      11357
+22       2  91.49       5201
+23       1  80.02       4960
+24       1  78.38       9557
+25       2 110.87       6161
+26       2  41.82       4927
+27       1 158.84       7436
+28       2  55.17       5266
+29       2  96.18       4013
+30       1  71.33       9567
+31       2  56.68       5030
+32       1 100.30       7379
+33       2 142.29       7293
+34       1 101.15       5208
+35       1 103.57       7611
+36       2  97.88       5541
+37       1  86.67       6949
+38       2 137.16      11621
+39       1 102.62      10592
+40       2 107.05       4524
+41       1 132.37      11292
+42       2   0.00          0
+43       1  76.53       5791
+44       1  87.26      11090
+45       2  93.80       7033
+46       2   0.00          0
+47       1 187.68       7445
+48       2   0.00          0
+49       2  80.83       4935
+50       1  71.76       9289
+51       2   0.00          0
+52       1   0.00          0
+53       2   0.00          0
+54       1 105.00       4961
+55       1  88.04       7384
+56       2 117.53       8080
+57       1  85.57       7646
+58       2 163.00      11660
+59       1  95.69       8894
+60       2 105.40       2298
+61       1 131.17      11300
+62       2   0.00          0
+63       1  87.48       6227
+64       1  94.04      11251
+65       2   0.00          0
+66       2   0.00          0
+67       1 177.93       7442
+68       2   0.00          0
+69       2   0.00          0
+70       1  71.01      10977
+71       2   0.00          0
+72       1   0.00          0
+73       2   0.00          0
+74       1 107.36       4878
+75       1  97.34       8222
+76       2   0.00          0
+77       1  99.32       8151
+78       2 164.38      11656
+79       1  90.27       9495
+80       2 110.44       4605
+> tbl <- read.table("scatter_musicals_plays.txt",header=TRUE,quote="",sep=",")
+> ticket <- tbl$Ticket
+> attendance <- tbl$Attendance
+> type <- tbl$Type
+> type
+ [1] "1\t127.22\t11365" "2\t81.28\t5874"   "1\t98.69\t6392"   "1\t69.67\t11977" 
+ [5] "2\t124.83\t7469"  "2\t61.77\t5738"   "1\t129.36\t7417"  "2\t80.09\t6160"  
+ [9] "2\t71.16\t4602"   "1\t79.31\t10176"  "2\t93.92\t6204"   "1\t100.06\t7954" 
+[13] "2\t146.25\t7197"  "1\t123.76\t5266"  "1\t105.1\t9494"   "2\t102.32\t5819" 
+[17] "1\t82.93\t7421"   "2\t150.6\t11661"  "1\t93.54\t10252"  "2\t105.09\t4549" 
+[21] "1\t133.25\t11357" "2\t91.49\t5201"   "1\t80.02\t4960"   "1\t78.38\t9557"  
+[25] "2\t110.87\t6161"  "2\t41.82\t4927"   "1\t158.84\t7436"  "2\t55.17\t5266"  
+[29] "2\t96.18\t4013"   "1\t71.33\t9567"   "2\t56.68\t5030"   "1\t100.3\t7379"  
+[33] "2\t142.29\t7293"  "1\t101.15\t5208"  "1\t103.57\t7611"  "2\t97.88\t5541"  
+[37] "1\t86.67\t6949"   "2\t137.16\t11621" "1\t102.62\t10592" "2\t107.05\t4524" 
+[41] "1\t132.37\t11292" "2\t0\t0"          "1\t76.53\t5791"   "1\t87.26\t11090" 
+[45] "2\t93.8\t7033"    "2\t0\t0"          "1\t187.68\t7445"  "2\t0\t0"         
+[49] "2\t80.83\t4935"   "1\t71.76\t9289"   "2\t0\t0"          "1\t0\t0"         
+[53] "2\t0\t0"          "1\t105\t4961"     "1\t88.04\t7384"   "2\t117.53\t8080" 
+[57] "1\t85.57\t7646"   "2\t163\t11660"    "1\t95.69\t8894"   "2\t105.4\t2298"  
+[61] "1\t131.17\t11300" "2\t0\t0"          "1\t87.48\t6227"   "1\t94.04\t11251" 
+[65] "2\t0\t0"          "2\t0\t0"          "1\t177.93\t7442"  "2\t0\t0"         
+[69] "2\t0\t0"          "1\t71.01\t10977"  "2\t0\t0"          "1\t0\t0"         
+[73] "2\t0\t0"          "1\t107.36\t4878"  "1\t97.34\t8222"   "2\t0\t0"         
+[77] "1\t99.32\t8151"   "2\t164.38\t11656" "1\t90.27\t9495"   "2\t110.44\t4605" 
+> attendance
+NULL
+> ticket
+NULL
+>  tbl <- read.table("scatter_musicals_plays.txt",header=TRUE,quote="",sep=",")
+> type <- tbl$Type
+> type
+ [1] "Musical\t127.22\t11365" "Play\t81.28\t5874"      "Musical\t98.69\t6392"  
+ [4] "Musical\t69.67\t11977"  "Play\t124.83\t7469"     "Play\t61.77\t5738"     
+ [7] "Musical\t129.36\t7417"  "Play\t80.09\t6160"      "Play\t71.16\t4602"     
+[10] "Musical\t79.31\t10176"  "Play\t93.92\t6204"      "Musical\t100.06\t7954" 
+[13] "Play\t146.25\t7197"     "Musical\t123.76\t5266"  "Musical\t105.1\t9494"  
+[16] "Play\t102.32\t5819"     "Musical\t82.93\t7421"   "Play\t150.6\t11661"    
+[19] "Musical\t93.54\t10252"  "Play\t105.09\t4549"     "Musical\t133.25\t11357"
+[22] "Play\t91.49\t5201"      "Musical\t80.02\t4960"   "Musical\t78.38\t9557"  
+[25] "Play\t110.87\t6161"     "Play\t41.82\t4927"      "Musical\t158.84\t7436" 
+[28] "Play\t55.17\t5266"      "Play\t96.18\t4013"      "Musical\t71.33\t9567"  
+[31] "Play\t56.68\t5030"      "Musical\t100.3\t7379"   "Play\t142.29\t7293"    
+[34] "Musical\t101.15\t5208"  "Musical\t103.57\t7611"  "Play\t97.88\t5541"     
+[37] "Musical\t86.67\t6949"   "Play\t137.16\t11621"    "Musical\t102.62\t10592"
+[40] "Play\t107.05\t4524"     "Musical\t132.37\t11292" "Play\t0\t0"            
+[43] "Musical\t76.53\t5791"   "Musical\t87.26\t11090"  "Play\t93.8\t7033"      
+[46] "Play\t0\t0"             "Musical\t187.68\t7445"  "Play\t0\t0"            
+[49] "Play\t80.83\t4935"      "Musical\t71.76\t9289"   "Play\t0\t0"            
+[52] "Musical\t0\t0"          "Play\t0\t0"             "Musical\t105\t4961"    
+[55] "Musical\t88.04\t7384"   "Play\t117.53\t8080"     "Musical\t85.57\t7646"  
+[58] "Play\t163\t11660"       "Musical\t95.69\t8894"   "Play\t105.4\t2298"     
+[61] "Musical\t131.17\t11300" "Play\t0\t0"             "Musical\t87.48\t6227"  
+[64] "Musical\t94.04\t11251"  "Play\t0\t0"             "Play\t0\t0"            
+[67] "Musical\t177.93\t7442"  "Play\t0\t0"             "Play\t0\t0"            
+[70] "Musical\t71.01\t10977"  "Play\t0\t0"             "Musical\t0\t0"         
+[73] "Play\t0\t0"             "Musical\t107.36\t4878"  "Musical\t97.34\t8222"  
+[76] "Play\t0\t0"             "Musical\t99.32\t8151"   "Play\t164.38\t11656"   
+[79] "Musical\t90.27\t9495"   "Play\t110.44\t4605"    
+> tbl <- read.table("scatter_musicals_plays.txt",header=TRUE,quote="",sep="")
+> type <- tbl$Type
+> type
+ [1] "Musical" "Play"    "Musical" "Musical" "Play"    "Play"    "Musical"
+ [8] "Play"    "Play"    "Musical" "Play"    "Musical" "Play"    "Musical"
+[15] "Musical" "Play"    "Musical" "Play"    "Musical" "Play"    "Musical"
+[22] "Play"    "Musical" "Musical" "Play"    "Play"    "Musical" "Play"   
+[29] "Play"    "Musical" "Play"    "Musical" "Play"    "Musical" "Musical"
+[36] "Play"    "Musical" "Play"    "Musical" "Play"    "Musical" "Play"   
+[43] "Musical" "Musical" "Play"    "Play"    "Musical" "Play"    "Play"   
+[50] "Musical" "Play"    "Musical" "Play"    "Musical" "Musical" "Play"   
+[57] "Musical" "Play"    "Musical" "Play"    "Musical" "Play"    "Musical"
+[64] "Musical" "Play"    "Play"    "Musical" "Play"    "Play"    "Musical"
+[71] "Play"    "Musical" "Play"    "Musical" "Musical" "Play"    "Musical"
+[78] "Play"    "Musical" "Play"   
+> attendance <- tbl$Attendance
+> attendance
+ [1] 11365  5874  6392 11977  7469  5738  7417  6160  4602 10176  6204  7954
+[13]  7197  5266  9494  5819  7421 11661 10252  4549 11357  5201  4960  9557
+[25]  6161  4927  7436  5266  4013  9567  5030  7379  7293  5208  7611  5541
+[37]  6949 11621 10592  4524 11292     0  5791 11090  7033     0  7445     0
+[49]  4935  9289     0     0     0  4961  7384  8080  7646 11660  8894  2298
+[61] 11300     0  6227 11251     0     0  7442     0     0 10977     0     0
+[73]     0  4878  8222     0  8151 11656  9495  4605
+> ticket <- tbl$Ticket
+> ticket
+ [1] 127.22  81.28  98.69  69.67 124.83  61.77 129.36  80.09  71.16  79.31
+[11]  93.92 100.06 146.25 123.76 105.10 102.32  82.93 150.60  93.54 105.09
+[21] 133.25  91.49  80.02  78.38 110.87  41.82 158.84  55.17  96.18  71.33
+[31]  56.68 100.30 142.29 101.15 103.57  97.88  86.67 137.16 102.62 107.05
+[41] 132.37   0.00  76.53  87.26  93.80   0.00 187.68   0.00  80.83  71.76
+[51]   0.00   0.00   0.00 105.00  88.04 117.53  85.57 163.00  95.69 105.40
+[61] 131.17   0.00  87.48  94.04   0.00   0.00 177.93   0.00   0.00  71.01
+[71]   0.00   0.00   0.00 107.36  97.34   0.00  99.32 164.38  90.27 110.44
+> ggplot(tbl, aes(x=ticket,y=attendance,color=type)) +
++ geom_point(size=6) +
++ theme_ipsum()

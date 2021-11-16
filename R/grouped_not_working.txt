@@ -1,0 +1,330 @@
+
+R version 4.1.1 (2021-08-10) -- "Kick Things"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: i386-w64-mingw32/i386 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> library(ggplot2)
+> library(tidyverse)
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+v tibble  3.1.5     v purrr   0.3.4
+v tidyr   1.1.4     v stringr 1.4.0
+v readr   2.0.2     v forcats 0.5.1
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+> library(plotly)
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+> data <- read.table('grouped_musicals_plays.csv',header=TRUE,quote="",sep=",")
+> data
+   ï..Type   Week_End Grosses
+1        1 04/07/2019 7307835
+2        1 04/14/2019 7771565
+3        1 04/21/2019 8426922
+4        1 04/28/2019 8697531
+5        1 05/05/2019 8449682
+6        1 05/12/2019 8887113
+7        1 05/19/2019 8811825
+8        1 05/26/2019 8933302
+9        1 06/02/2019 8267282
+10       1 06/09/2019 8572970
+11       1 06/16/2019 8940322
+12       1 06/23/2019 9222580
+13       1 06/30/2019 9205929
+14       2 04/07/2019 6125396
+15       2 04/14/2019 6412010
+16       2 04/21/2019 6539583
+17       2 04/28/2019 7050025
+18       2 05/05/2019 5814628
+19       2 05/12/2019 6605620
+20       2 05/19/2019 6303044
+21       2 05/26/2019 6408847
+22       2 06/02/2019 5984847
+23       2 06/09/2019 6665185
+24       2 06/16/2019 5345462
+25       2 06/23/2019 5265273
+26       2 06/30/2019 4948387
+> type <- data$Type
+> dates <- data$Week_End
+> grosses <- data$Grosses
+> data %>%
++ ggplot(aes(x=dates,y=grosses,group=type,color=type)) +
++ geom_line()
+> options(scipen=100)
+> data %>%
++ ggplot(aes(x=dates,y=grosses)) +
++ geom_line(aes(group=type))
+> library(groupdata2)
+Error in library(groupdata2) : there is no package called ‘groupdata2’
+> install.packages(groupdata2)
+Error in install.packages(groupdata2) : object 'groupdata2' not found
+> a <- data %>% group_by(type)
+Error: Must group by variables found in `.data`.
+* Column `type` is not found.
+Run `rlang::last_error()` to see where the error occurred.
+> type
+NULL
+> class(type)
+[1] "NULL"
+> type <- as.numberic(type)
+Error in as.numberic(type) : could not find function "as.numberic"
+> type <- as.numeric(type)
+> a <- data %>% group_by(type)
+Error: Must group by variables found in `.data`.
+* Column `type` is not found.
+Run `rlang::last_error()` to see where the error occurred.
+> type
+numeric(0)
+> dates
+ [1] "04/07/2019" "04/14/2019" "04/21/2019" "04/28/2019" "05/05/2019"
+ [6] "05/12/2019" "05/19/2019" "05/26/2019" "06/02/2019" "06/09/2019"
+[11] "06/16/2019" "06/23/2019" "06/30/2019" "04/07/2019" "04/14/2019"
+[16] "04/21/2019" "04/28/2019" "05/05/2019" "05/12/2019" "05/19/2019"
+[21] "05/26/2019" "06/02/2019" "06/09/2019" "06/16/2019" "06/23/2019"
+[26] "06/30/2019"
+> grosses
+ [1] 7307835 7771565 8426922 8697531 8449682 8887113 8811825 8933302 8267282
+[10] 8572970 8940322 9222580 9205929 6125396 6412010 6539583 7050025 5814628
+[19] 6605620 6303044 6408847 5984847 6665185 5345462 5265273 4948387
+> type <- data$Type
+> type
+NULL
+> data <- read.table('grouped_musicals_plays.csv',header=TRUE,quote="",sep=",")
+> data
+   ï..Category   Week_End Grosses
+1            1 04/07/2019 7307835
+2            1 04/14/2019 7771565
+3            1 04/21/2019 8426922
+4            1 04/28/2019 8697531
+5            1 05/05/2019 8449682
+6            1 05/12/2019 8887113
+7            1 05/19/2019 8811825
+8            1 05/26/2019 8933302
+9            1 06/02/2019 8267282
+10           1 06/09/2019 8572970
+11           1 06/16/2019 8940322
+12           1 06/23/2019 9222580
+13           1 06/30/2019 9205929
+14           2 04/07/2019 6125396
+15           2 04/14/2019 6412010
+16           2 04/21/2019 6539583
+17           2 04/28/2019 7050025
+18           2 05/05/2019 5814628
+19           2 05/12/2019 6605620
+20           2 05/19/2019 6303044
+21           2 05/26/2019 6408847
+22           2 06/02/2019 5984847
+23           2 06/09/2019 6665185
+24           2 06/16/2019 5345462
+25           2 06/23/2019 5265273
+26           2 06/30/2019 4948387
+> grosses <- data$Grosses
+> grosses
+ [1] 7307835 7771565 8426922 8697531 8449682 8887113 8811825 8933302 8267282
+[10] 8572970 8940322 9222580 9205929 6125396 6412010 6539583 7050025 5814628
+[19] 6605620 6303044 6408847 5984847 6665185 5345462 5265273 4948387
+> dates <- data$Week_End
+> dates
+ [1] "04/07/2019" "04/14/2019" "04/21/2019" "04/28/2019" "05/05/2019"
+ [6] "05/12/2019" "05/19/2019" "05/26/2019" "06/02/2019" "06/09/2019"
+[11] "06/16/2019" "06/23/2019" "06/30/2019" "04/07/2019" "04/14/2019"
+[16] "04/21/2019" "04/28/2019" "05/05/2019" "05/12/2019" "05/19/2019"
+[21] "05/26/2019" "06/02/2019" "06/09/2019" "06/16/2019" "06/23/2019"
+[26] "06/30/2019"
+> type <- data$Category
+> type
+NULL
+> data <- read.table("grouped_musicals_plays.csv",header=TRUE,quote="",sep=",")
+> data
+   ï..Category   Week_End Grosses
+1            1 04/07/2019 7307835
+2            1 04/14/2019 7771565
+3            1 04/21/2019 8426922
+4            1 04/28/2019 8697531
+5            1 05/05/2019 8449682
+6            1 05/12/2019 8887113
+7            1 05/19/2019 8811825
+8            1 05/26/2019 8933302
+9            1 06/02/2019 8267282
+10           1 06/09/2019 8572970
+11           1 06/16/2019 8940322
+12           1 06/23/2019 9222580
+13           1 06/30/2019 9205929
+14           2 04/07/2019 6125396
+15           2 04/14/2019 6412010
+16           2 04/21/2019 6539583
+17           2 04/28/2019 7050025
+18           2 05/05/2019 5814628
+19           2 05/12/2019 6605620
+20           2 05/19/2019 6303044
+21           2 05/26/2019 6408847
+22           2 06/02/2019 5984847
+23           2 06/09/2019 6665185
+24           2 06/16/2019 5345462
+25           2 06/23/2019 5265273
+26           2 06/30/2019 4948387
+> type <- data$Category
+> type
+NULL
+> data <- read.table("grouped_musicals_plays.csv",header=TRUE,sep=",")
+> data
+   ï..Category   Week_End Grosses
+1            1 04/07/2019 7307835
+2            1 04/14/2019 7771565
+3            1 04/21/2019 8426922
+4            1 04/28/2019 8697531
+5            1 05/05/2019 8449682
+6            1 05/12/2019 8887113
+7            1 05/19/2019 8811825
+8            1 05/26/2019 8933302
+9            1 06/02/2019 8267282
+10           1 06/09/2019 8572970
+11           1 06/16/2019 8940322
+12           1 06/23/2019 9222580
+13           1 06/30/2019 9205929
+14           2 04/07/2019 6125396
+15           2 04/14/2019 6412010
+16           2 04/21/2019 6539583
+17           2 04/28/2019 7050025
+18           2 05/05/2019 5814628
+19           2 05/12/2019 6605620
+20           2 05/19/2019 6303044
+21           2 05/26/2019 6408847
+22           2 06/02/2019 5984847
+23           2 06/09/2019 6665185
+24           2 06/16/2019 5345462
+25           2 06/23/2019 5265273
+26           2 06/30/2019 4948387
+> type
+NULL
+> type <- data$Category
+> type
+NULL
+> category <- data$Category
+> category
+NULL
+> class(category)
+[1] "NULL"
+> data <- read.table("grouped_musicals_plays.csv",header=TRUE,sep=",")
+> category <- data$Category
+> category
+ [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2
+> dates <- data$Week_End
+> dates
+NULL
+> data
+   ï..Week_End Grosses Category
+1   04/07/2019 7307835        1
+2   04/14/2019 7771565        1
+3   04/21/2019 8426922        1
+4   04/28/2019 8697531        1
+5   05/05/2019 8449682        1
+6   05/12/2019 8887113        1
+7   05/19/2019 8811825        1
+8   05/26/2019 8933302        1
+9   06/02/2019 8267282        1
+10  06/09/2019 8572970        1
+11  06/16/2019 8940322        1
+12  06/23/2019 9222580        1
+13  06/30/2019 9205929        1
+14  04/07/2019 6125396        2
+15  04/14/2019 6412010        2
+16  04/21/2019 6539583        2
+17  04/28/2019 7050025        2
+18  05/05/2019 5814628        2
+19  05/12/2019 6605620        2
+20  05/19/2019 6303044        2
+21  05/26/2019 6408847        2
+22  06/02/2019 5984847        2
+23  06/09/2019 6665185        2
+24  06/16/2019 5345462        2
+25  06/23/2019 5265273        2
+26  06/30/2019 4948387        2
+> data <- read.table("grouped_musicals_plays.csv",header=FALSE,sep=",")
+> data
+            V1      V2       V3
+1  ï»¿Week_End Grosses Category
+2   04/07/2019 7307835        1
+3   04/14/2019 7771565        1
+4   04/21/2019 8426922        1
+5   04/28/2019 8697531        1
+6   05/05/2019 8449682        1
+7   05/12/2019 8887113        1
+8   05/19/2019 8811825        1
+9   05/26/2019 8933302        1
+10  06/02/2019 8267282        1
+11  06/09/2019 8572970        1
+12  06/16/2019 8940322        1
+13  06/23/2019 9222580        1
+14  06/30/2019 9205929        1
+15  04/07/2019 6125396        2
+16  04/14/2019 6412010        2
+17  04/21/2019 6539583        2
+18  04/28/2019 7050025        2
+19  05/05/2019 5814628        2
+20  05/12/2019 6605620        2
+21  05/19/2019 6303044        2
+22  05/26/2019 6408847        2
+23  06/02/2019 5984847        2
+24  06/09/2019 6665185        2
+25  06/16/2019 5345462        2
+26  06/23/2019 5265273        2
+27  06/30/2019 4948387        2
+> dates <- data$Week_End
+> dates
+NULL
+> data <- read.table("grouped_musicals_plays.csv",header=TRUE,sep=",")
+> dates <- data$Week_End
+> dates
+NULL
+> data <- read.table("grouped_musicals_plays.csv",header=TRUE,sep=",",drop="A")
+Error in read.table("grouped_musicals_plays.csv", header = TRUE, sep = ",",  : 
+  unused argument (drop = "A")
+> data <- read.table("grouped_musicals_plays.csv",header=TRUE,drop="A",sep=",")
+Error in read.table("grouped_musicals_plays.csv", header = TRUE, drop = "A",  : 
+  unused argument (drop = "A")
+> data <- read.table("grouped_musicals_plays.csv",header=TRUE,quote="",sep=",")
+> dates <- data$Week_End
+> dates
+NULL

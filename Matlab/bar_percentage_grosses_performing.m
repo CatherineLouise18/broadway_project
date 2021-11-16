@@ -2,7 +2,7 @@ clear all;
 close all;
 clc
 
-tbl = readtable('heatmap_grosses_performing_show_2019.csv');
+tbl = readtable('bar_grosses_performing_show_2019.csv');
 tbl.Show = categorical(tbl.Show);
 tbl.updown = categorical(tbl.updown);
 x = (tbl.Show);

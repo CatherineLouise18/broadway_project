@@ -1,0 +1,44 @@
+> data <- read.table("scatter_musicals_plays_percentages.txt",header=TRUE,quote="",sep="")
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'scatter_musicals_plays_percentages.txt': No such file or directory
+> data <- read.table("scatter_musicals_plays_percentage.txt",header=TRUE,quote="",sep="")
+> attendance <- data$Attendance
+> ticket <- data$Ticket
+> type <- data$Type
+> attendance <- data$Attendance_Percentage
+> attendance
+ [1]  99.76  99.22  89.67 100.28  97.25  93.15 100.99  97.84  90.31  83.64
+[11]  73.93  99.62 101.29 101.58  86.00  71.38  88.77 101.58  91.42  97.53
+[21]  99.69  87.85  69.58  80.02  80.22  79.98 101.25  83.64  78.75  68.81
+[31]  59.94  92.42 102.65 100.00  68.94  67.97  83.12 101.23  82.65  97.00
+[41]  99.12   0.00  81.24  92.85  91.58   0.00 101.38   0.00  96.84  66.81
+[51]   0.00   0.00   0.00  95.26  66.88  99.12  91.46 101.57  69.40  98.54
+[61]  99.19   0.00  87.36  94.20   0.00   0.00 101.33   0.00   0.00  78.94
+[71]   0.00   0.00   0.00  93.66  74.47   0.00  97.50 101.53  74.09  98.73
+> type
+ [1] "Musical" "Play"    "Musical" "Musical" "Play"    "Play"    "Musical"
+ [8] "Play"    "Play"    "Musical" "Play"    "Musical" "Play"    "Musical"
+[15] "Musical" "Play"    "Musical" "Play"    "Musical" "Play"    "Musical"
+[22] "Play"    "Musical" "Musical" "Play"    "Play"    "Musical" "Play"   
+[29] "Play"    "Musical" "Play"    "Musical" "Play"    "Musical" "Musical"
+[36] "Play"    "Musical" "Play"    "Musical" "Play"    "Musical" "Play"   
+[43] "Musical" "Musical" "Play"    "Play"    "Musical" "Play"    "Play"   
+[50] "Musical" "Play"    "Musical" "Play"    "Musical" "Musical" "Play"   
+[57] "Musical" "Play"    "Musical" "Play"    "Musical" "Play"    "Musical"
+[64] "Musical" "Play"    "Play"    "Musical" "Play"    "Play"    "Musical"
+[71] "Play"    "Musical" "Play"    "Musical" "Musical" "Play"    "Musical"
+[78] "Play"    "Musical" "Play"   
+> ticket
+ [1] 127.22  81.28  98.69  69.67 124.83  61.77 129.36  80.09  71.16  79.31
+[11]  93.92 100.06 146.25 123.76 105.10 102.32  82.93 150.60  93.54 105.09
+[21] 133.25  91.49  80.02  78.38 110.87  41.82 158.84  55.17  96.18  71.33
+[31]  56.68 100.30 142.29 101.15 103.57  97.88  86.67 137.16 102.62 107.05
+[41] 132.37   0.00  76.53  87.26  93.80   0.00 187.68   0.00  80.83  71.76
+[51]   0.00   0.00   0.00 105.00  88.04 117.53  85.57 163.00  95.69 105.40
+[61] 131.17   0.00  87.48  94.04   0.00   0.00 177.93   0.00   0.00  71.01
+[71]   0.00   0.00   0.00 107.36  97.34   0.00  99.32 164.38  90.27 110.44
+> ggplot(tbl, aes(x=ticket,y=attendance,color=type)) +
++ geom_point(size=6) +
++ theme_ipsum()

@@ -9,3 +9,4 @@ gscatter(x,y,tbl.Performing);
 xlabel('Attendance');
 ylabel('Grosses');
 title('Attendance vs. Grosses Before The 2019 Tony Awards And Whether They Performed At This Ceremony');
+grid on;

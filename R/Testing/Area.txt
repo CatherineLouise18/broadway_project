@@ -1,0 +1,392 @@
+
+R version 4.1.1 (2021-08-10) -- "Kick Things"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: i386-w64-mingw32/i386 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(treemap)
+Error in library(treemap) : there is no package called ‘treemap’
+> install.packages("treemap")
+--- Please select a CRAN mirror for use in this session ---
+also installing the dependencies ‘sass’, ‘httpuv’, ‘xtable’, ‘fontawesome’, ‘sourcetools’, ‘later’, ‘promises’, ‘commonmark’, ‘bslib’, ‘cachem’, ‘gridBase’, ‘igraph’, ‘shiny’
+
+
+  There is a binary version available but the source version is later:
+       binary source needs_compilation
+igraph  1.2.7  1.2.8              TRUE
+
+  Binaries will be installed
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/sass_0.4.0.zip'
+Content type 'application/zip' length 3639381 bytes (3.5 MB)
+downloaded 3.5 MB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/httpuv_1.6.3.zip'
+Content type 'application/zip' length 1695975 bytes (1.6 MB)
+downloaded 1.6 MB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/xtable_1.8-4.zip'
+Content type 'application/zip' length 706814 bytes (690 KB)
+downloaded 690 KB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/fontawesome_0.2.2.zip'
+Content type 'application/zip' length 1529170 bytes (1.5 MB)
+downloaded 1.5 MB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/sourcetools_0.1.7.zip'
+Content type 'application/zip' length 691460 bytes (675 KB)
+downloaded 675 KB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/later_1.3.0.zip'
+Content type 'application/zip' length 860078 bytes (839 KB)
+downloaded 839 KB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/promises_1.2.0.1.zip'
+Content type 'application/zip' length 2320151 bytes (2.2 MB)
+downloaded 2.2 MB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/commonmark_1.7.zip'
+Content type 'application/zip' length 265739 bytes (259 KB)
+downloaded 259 KB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/bslib_0.3.1.zip'
+Content type 'application/zip' length 5038496 bytes (4.8 MB)
+downloaded 4.8 MB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/cachem_1.0.6.zip'
+Content type 'application/zip' length 78973 bytes (77 KB)
+downloaded 77 KB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/gridBase_0.4-7.zip'
+Content type 'application/zip' length 166123 bytes (162 KB)
+downloaded 162 KB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/igraph_1.2.7.zip'
+Content type 'application/zip' length 9012356 bytes (8.6 MB)
+downloaded 8.6 MB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/shiny_1.7.1.zip'
+Content type 'application/zip' length 4231727 bytes (4.0 MB)
+downloaded 4.0 MB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/treemap_2.4-3.zip'
+Content type 'application/zip' length 304779 bytes (297 KB)
+downloaded 297 KB
+
+package ‘sass’ successfully unpacked and MD5 sums checked
+package ‘httpuv’ successfully unpacked and MD5 sums checked
+package ‘xtable’ successfully unpacked and MD5 sums checked
+package ‘fontawesome’ successfully unpacked and MD5 sums checked
+package ‘sourcetools’ successfully unpacked and MD5 sums checked
+package ‘later’ successfully unpacked and MD5 sums checked
+package ‘promises’ successfully unpacked and MD5 sums checked
+package ‘commonmark’ successfully unpacked and MD5 sums checked
+package ‘bslib’ successfully unpacked and MD5 sums checked
+package ‘cachem’ successfully unpacked and MD5 sums checked
+package ‘gridBase’ successfully unpacked and MD5 sums checked
+package ‘igraph’ successfully unpacked and MD5 sums checked
+package ‘shiny’ successfully unpacked and MD5 sums checked
+package ‘treemap’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\cathe\AppData\Local\Temp\RtmpMt6s77\downloaded_packages
+> library(treemap)
+> tbl <- read.table('pie_grosses_after_2019.csv')
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'pie_grosses_after_2019.csv': No such file or directory
+> tbl <- read.table('pie_grosses_after_2019.csv')
+Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  : 
+  line 1 did not have 3 elements
+> tbl <- read.table('pie_grosses_after_2019.csv',header=TRUE,quote="",sep=",")
+> group <- c(rep("Musicals",10),rep("Plays",10))
+> subgroup <- paste("subgroup", c(6254814,1816721,3849426,5286118,2930088,2298658,2360134,3191205,2763484,4263937), sep="-")
+> value <- c(1599838,2678777,273013,542668,1581535,3499561,7814875,1821352)
+> data <- data.frame(group,subgroup,value)
+Error in data.frame(group, subgroup, value) : 
+  arguments imply differing number of rows: 20, 10, 8
+> group <- c(rep("Musicals",10),rep("Plays",8))
+> subgroup <- paste("subgroup", c(6254814,1816721,3849426,5286118,2930088,2298658,2360134,3191205,2763484,4263937), sep="-")
+> value <- c(1599838,2678777,273013,542668,1581535,3499561,7814875,1821352)
+> data <- data.frame(group,subgroup,value)
+Error in data.frame(group, subgroup, value) : 
+  arguments imply differing number of rows: 18, 10, 8
+> treemap(data,
++ index=c("group","subgroup"),
++ vSize="value",
++ type="index")
+Error in treemap(data, index = c("group", "subgroup"), vSize = "value",  : 
+  <index> contains invalid column names
+> library(ggplot2)
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> library(plotly)
+Error in library(plotly) : there is no package called ‘plotly’
+> install.packages("plotly")
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/plotly_4.10.0.zip'
+Content type 'application/zip' length 3175348 bytes (3.0 MB)
+downloaded 3.0 MB
+
+package ‘plotly’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\cathe\AppData\Local\Temp\RtmpMt6s77\downloaded_packages
+> library(plotly)
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+> library(hrbrthemes)
+Error in library(hrbrthemes) : there is no package called ‘hrbrthemes’
+> install.packages("hrbrthemes")
+also installing the dependencies ‘extrafontdb’, ‘Rttf2pt1’, ‘systemfonts’, ‘extrafont’, ‘gdtools’
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/extrafontdb_1.0.zip'
+Content type 'application/zip' length 10455 bytes (10 KB)
+downloaded 10 KB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/Rttf2pt1_1.3.9.zip'
+Content type 'application/zip' length 212922 bytes (207 KB)
+downloaded 207 KB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/systemfonts_1.0.3.zip'
+Content type 'application/zip' length 2014424 bytes (1.9 MB)
+downloaded 1.9 MB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/extrafont_0.17.zip'
+Content type 'application/zip' length 52393 bytes (51 KB)
+downloaded 51 KB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/gdtools_0.2.3.zip'
+Content type 'application/zip' length 3725590 bytes (3.6 MB)
+downloaded 3.6 MB
+
+trying URL 'https://cran.ma.imperial.ac.uk/bin/windows/contrib/4.1/hrbrthemes_0.8.0.zip'
+Content type 'application/zip' length 2327165 bytes (2.2 MB)
+downloaded 2.2 MB
+
+package ‘extrafontdb’ successfully unpacked and MD5 sums checked
+package ‘Rttf2pt1’ successfully unpacked and MD5 sums checked
+package ‘systemfonts’ successfully unpacked and MD5 sums checked
+package ‘extrafont’ successfully unpacked and MD5 sums checked
+package ‘gdtools’ successfully unpacked and MD5 sums checked
+package ‘hrbrthemes’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\cathe\AppData\Local\Temp\RtmpMt6s77\downloaded_packages
+> library(hrbrthemes)
+Registering Windows fonts with R
+NOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.
+      Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and
+      if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow
+> tbl <- read.table('chill.csv',header=TRUE,quote="",sep=",")
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'chill.csv': No such file or directory
+> tbl <- read.table('chill.csv',header=TRUE,quote="",sep=",")
+> tbl
+         ï..Show   Week_End Ticket Nominations Wins Grosses
+1  Be More Chill 28/04/2019  98.69           0    0  630822
+2  Be More Chill 05/05/2019  84.87           0    0  411116
+3  Be More Chill 12/05/2019  85.87           1    0  407296
+4  Be More Chill 19/05/2019  72.45           1    0  431935
+5  Be More Chill 26/05/2019  78.84           1    0  448182
+6  Be More Chill 02/06/2019  80.02           1    0  396876
+7  Be More Chill 09/06/2019  80.80           1    0  389761
+8  Be More Chill 16/06/2019  90.77           1    0  416560
+9  Be More Chill 23/06/2019  90.86           1    0  459379
+10 Be More Chill 30/06/2019  86.70           1    0  497570
+> tbl$Week_End <- as.Date(tbl$Week_End)
+> p <- tbl %>%
++ ggplot( aes(x=tbl$Week_End, y=tbl$Grosses)) +
++ geom_area(fill="#69b3a2", alpha=0.5) +
++ geom_line(color="#69b3a2") +
++ ylab("Grosses ($)") +
++ theme_ipsum()
+> p <- ggplotly(p)
+Warning messages:
+1: Use of `tbl$Week_End` is discouraged. Use `Week_End` instead. 
+2: Use of `tbl$Grosses` is discouraged. Use `Grosses` instead. 
+3: Use of `tbl$Week_End` is discouraged. Use `Week_End` instead. 
+4: Use of `tbl$Grosses` is discouraged. Use `Grosses` instead. 
+> p
+> tbl
+         ï..Show   Week_End Ticket Nominations Wins Grosses
+1  Be More Chill 0028-04-20  98.69           0    0  630822
+2  Be More Chill 0005-05-20  84.87           0    0  411116
+3  Be More Chill 0012-05-20  85.87           1    0  407296
+4  Be More Chill 0019-05-20  72.45           1    0  431935
+5  Be More Chill 0026-05-20  78.84           1    0  448182
+6  Be More Chill 0002-06-20  80.02           1    0  396876
+7  Be More Chill 0009-06-20  80.80           1    0  389761
+8  Be More Chill 0016-06-20  90.77           1    0  416560
+9  Be More Chill 0023-06-20  90.86           1    0  459379
+10 Be More Chill 0030-06-20  86.70           1    0  497570
+> class(tbl$Week_End)
+[1] "Date"
+> tbl$Week_End <- as.Date(tbl$Week_End, format="dd-MM-yy")
+> class(tbl$Week_End)
+[1] "Date"
+> tbl
+         ï..Show   Week_End Ticket Nominations Wins Grosses
+1  Be More Chill 0028-04-20  98.69           0    0  630822
+2  Be More Chill 0005-05-20  84.87           0    0  411116
+3  Be More Chill 0012-05-20  85.87           1    0  407296
+4  Be More Chill 0019-05-20  72.45           1    0  431935
+5  Be More Chill 0026-05-20  78.84           1    0  448182
+6  Be More Chill 0002-06-20  80.02           1    0  396876
+7  Be More Chill 0009-06-20  80.80           1    0  389761
+8  Be More Chill 0016-06-20  90.77           1    0  416560
+9  Be More Chill 0023-06-20  90.86           1    0  459379
+10 Be More Chill 0030-06-20  86.70           1    0  497570
+> p <- tbl %>%
++  ggplot( aes(x=tbl$Week_End, y=tbl$Grosses)) +
++ geom_area(fill="#69b3a2", alpha=0.5) +
++ geom_line(color="#69b3a2") +
++ ylab("Grosses ($)") +
++ theme_ipsum()
+> p <- ggplotly(p)
+Warning messages:
+1: Use of `tbl$Week_End` is discouraged. Use `Week_End` instead. 
+2: Use of `tbl$Grosses` is discouraged. Use `Grosses` instead. 
+3: Use of `tbl$Week_End` is discouraged. Use `Week_End` instead. 
+4: Use of `tbl$Grosses` is discouraged. Use `Grosses` instead. 
+> p
+> options(scipen=100)
+> p <- tbl %>%
++  ggplot( aes(x=tbl$Week_End, y=tbl$Grosses)) +
++ geom_area(fill="#69b3a2", alpha=0.5) +
++  geom_line(color="#69b3a2") +
++ ylab("Grosses ($)") +
++ theme_ipsum()
+> p <- ggplotly(p)
+Warning messages:
+1: Use of `tbl$Week_End` is discouraged. Use `Week_End` instead. 
+2: Use of `tbl$Grosses` is discouraged. Use `Grosses` instead. 
+3: Use of `tbl$Week_End` is discouraged. Use `Week_End` instead. 
+4: Use of `tbl$Grosses` is discouraged. Use `Grosses` instead. 
+> p
+> tbl <- read.table('chill.csv',header=TRUE,quote="",sep=",") 
+> tbl$Week_End <- as.Date(tbl$Week_End, format="MM/dd/yy")
+> class(tbl$Week_End)
+[1] "Date"
+> tbl
+         ï..Show Week_End Ticket Nominations Wins Grosses
+1  Be More Chill     <NA>  98.69           0    0  630822
+2  Be More Chill     <NA>  84.87           0    0  411116
+3  Be More Chill     <NA>  85.87           1    0  407296
+4  Be More Chill     <NA>  72.45           1    0  431935
+5  Be More Chill     <NA>  78.84           1    0  448182
+6  Be More Chill     <NA>  80.02           1    0  396876
+7  Be More Chill     <NA>  80.80           1    0  389761
+8  Be More Chill     <NA>  90.77           1    0  416560
+9  Be More Chill     <NA>  90.86           1    0  459379
+10 Be More Chill     <NA>  86.70           1    0  497570
+> tbl <- read.table('chill.csv',header=TRUE,quote="",sep=",") 
+> tbl$Week_End <- as.Date(tbl$Week_End, format="dd/MM/yy")
+> tbl
+         ï..Show Week_End Ticket Nominations Wins Grosses
+1  Be More Chill     <NA>  98.69           0    0  630822
+2  Be More Chill     <NA>  84.87           0    0  411116
+3  Be More Chill     <NA>  85.87           1    0  407296
+4  Be More Chill     <NA>  72.45           1    0  431935
+5  Be More Chill     <NA>  78.84           1    0  448182
+6  Be More Chill     <NA>  80.02           1    0  396876
+7  Be More Chill     <NA>  80.80           1    0  389761
+8  Be More Chill     <NA>  90.77           1    0  416560
+9  Be More Chill     <NA>  90.86           1    0  459379
+10 Be More Chill     <NA>  86.70           1    0  497570
+> tbl <- read.table('chill.csv',header=TRUE,quote="",sep=",")
+> tbl$Week_End <- as.Date(tbl$Week_End, format="dd-MM-yy")
+> tbl
+         ï..Show Week_End Ticket Nominations Wins Grosses
+1  Be More Chill     <NA>  98.69           0    0  630822
+2  Be More Chill     <NA>  84.87           0    0  411116
+3  Be More Chill     <NA>  85.87           1    0  407296
+4  Be More Chill     <NA>  72.45           1    0  431935
+5  Be More Chill     <NA>  78.84           1    0  448182
+6  Be More Chill     <NA>  80.02           1    0  396876
+7  Be More Chill     <NA>  80.80           1    0  389761
+8  Be More Chill     <NA>  90.77           1    0  416560
+9  Be More Chill     <NA>  90.86           1    0  459379
+10 Be More Chill     <NA>  86.70           1    0  497570
+> tbl <- read.table('chill.csv',header=TRUE,quote="",sep=",")
+> tbl
+         ï..Show   Week_End Ticket Nominations Wins Grosses
+1  Be More Chill 28/04/2019  98.69           0    0  630822
+2  Be More Chill 05/05/2019  84.87           0    0  411116
+3  Be More Chill 12/05/2019  85.87           1    0  407296
+4  Be More Chill 19/05/2019  72.45           1    0  431935
+5  Be More Chill 26/05/2019  78.84           1    0  448182
+6  Be More Chill 02/06/2019  80.02           1    0  396876
+7  Be More Chill 09/06/2019  80.80           1    0  389761
+8  Be More Chill 16/06/2019  90.77           1    0  416560
+9  Be More Chill 23/06/2019  90.86           1    0  459379
+10 Be More Chill 30/06/2019  86.70           1    0  497570
+> class(tbl$Week_End)
+[1] "character"
+> tbl$Week_End <- as.Date(tbl$Week_End, format="yy-MM-dd")
+> tbl
+         ï..Show Week_End Ticket Nominations Wins Grosses
+1  Be More Chill     <NA>  98.69           0    0  630822
+2  Be More Chill     <NA>  84.87           0    0  411116
+3  Be More Chill     <NA>  85.87           1    0  407296
+4  Be More Chill     <NA>  72.45           1    0  431935
+5  Be More Chill     <NA>  78.84           1    0  448182
+6  Be More Chill     <NA>  80.02           1    0  396876
+7  Be More Chill     <NA>  80.80           1    0  389761
+8  Be More Chill     <NA>  90.77           1    0  416560
+9  Be More Chill     <NA>  90.86           1    0  459379
+10 Be More Chill     <NA>  86.70           1    0  497570
+> dates(2019,04,28; 2019,05,05; 2019,05,12; 2019,05,19; 2019,05,26; 2019,06,02; 2019,06,09; 2019,06,16; 2019,06,23; 2019,06,30)
+Error: unexpected ';' in "dates(2019,04,28;"
+> dates <- as.Date(c("2019-04-28", "2019-05-05", "2019-05-12", "2019-05-19", "2019-05-26", "2019-06-02", "2019-06-09", "2019-06-16", "2019-06-23", "2019-06-30"))
+> options(scipen=100)
+>  p <- tbl %>%
++ ggplot( aes(x=dates, y=tbl$Grosses)) +
++ geom_area(fill="#69b3a2", alpha=0.5) +
++ geom_line(color="#69b3a2") +
++ ylab("Grosses ($)") +
++ theme_ipsum()
+>  p <- ggplotly(p)
+Warning messages:
+1: Use of `tbl$Grosses` is discouraged. Use `Grosses` instead. 
+2: Use of `tbl$Grosses` is discouraged. Use `Grosses` instead. 
+> p
